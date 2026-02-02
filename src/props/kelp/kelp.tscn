@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dgt1n3wm7c3qs"]
+
+[ext_resource type="Script" uid="uid://cvfgv31y7rvux" path="res://src/props/kelp/kelp.gd" id="1_pmxda"]
+[ext_resource type="Texture2D" uid="uid://dawxciqh4gujh" path="res://assets/props/kelp.png" id="2_vxxuk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmxda"]
+atlas = ExtResource("2_vxxuk")
+region = Rect2(0, 25, 24, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxxuk"]
+atlas = ExtResource("2_vxxuk")
+region = Rect2(0, 10, 24, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1g5t"]
+atlas = ExtResource("2_vxxuk")
+region = Rect2(0, 0, 24, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvqwg"]
+atlas = ExtResource("2_vxxuk")
+region = Rect2(0, 10, 24, 14)
+
+[node name="Kelp" type="Node2D" unique_id=1138391068]
+script = ExtResource("1_pmxda")
+tall = 5
+max_tall = 10
+min_tall = 3
+root_texture = SubResource("AtlasTexture_pmxda")
+stem_texture = SubResource("AtlasTexture_vxxuk")
+top_texture = SubResource("AtlasTexture_m1g5t")
+
+[node name="TopSprite" type="Sprite2D" parent="." unique_id=212589878]
+unique_name_in_owner = true
+
+[node name="StemSprite" type="Sprite2D" parent="." unique_id=396316961]
+unique_name_in_owner = true
+visible = false
+texture_repeat = 2
+texture = SubResource("AtlasTexture_wvqwg")
+region_enabled = true
+region_rect = Rect2(-10, -16, 40, 39)
+
+[node name="RootSprite" type="Sprite2D" parent="." unique_id=1613290041]
+unique_name_in_owner = true
