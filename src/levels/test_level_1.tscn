@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dpyme1kq6r755"]
+
+[ext_resource type="PackedScene" uid="uid://drihxlqlbhohq" path="res://src/player/player.tscn" id="1_cxdpd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cxdpd"]
+size = Vector3(8, 180, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxdpd"]
+size = Vector2(8, 180)
+
+[node name="TestLevel1" type="Node2D" unique_id=837896800]
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1245037256 instance=ExtResource("1_cxdpd")]
+position = Vector2(70, 115)
+
+[node name="Wall1" type="StaticBody2D" parent="." unique_id=1164518762]
+position = Vector2(316, 90)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall1" unique_id=2004640620]
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("BoxMesh_cxdpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" unique_id=2013887662]
+shape = SubResource("RectangleShape2D_cxdpd")
+
+[node name="Wall2" type="StaticBody2D" parent="." unique_id=1129729913]
+position = Vector2(250, 21)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall2" unique_id=1381803652]
+self_modulate = Color(0, 0, 0, 1)
+mesh = SubResource("BoxMesh_cxdpd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=428920482]
+shape = SubResource("RectangleShape2D_cxdpd")

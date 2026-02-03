@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://drihxlqlbhohq"]
+
+[ext_resource type="Script" uid="uid://dltpppldadp7w" path="res://src/player/player.gd" id="1_4anbu"]
+[ext_resource type="Texture2D" uid="uid://075kmh7unm0c" path="res://assets/player/player.png" id="2_rxibo"]
+[ext_resource type="Script" uid="uid://b38sn5c4l06dy" path="res://src/state_machine/state_machine.gd" id="3_mf2ua"]
+[ext_resource type="Script" uid="uid://kbjj8var5d3b" path="res://src/player/states/control_state.gd" id="4_244u8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4anbu"]
+size = Vector2(5, 21)
+
+[node name="Player" type="CharacterBody2D" unique_id=1245037256]
+script = ExtResource("1_4anbu")
+rotate_speed = 4.0
+max_rotation_speed = 30.0
+rotation_speed_acc = 6.0
+rotation_speed_dec = 2.0
+boost_speed = 50.0
+max_boost_speed = 100.0
+gravity = 1.0
+gravity_limit = 25.0
+metadata/_edit_group_ = true
+
+[node name="Shape" type="Node2D" parent="." unique_id=380790134]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shape" unique_id=1882161697]
+position = Vector2(-2, 0)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+texture = ExtResource("2_rxibo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=201874755]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_4anbu")
+
+[node name="StateMachine" type="Node" parent="." unique_id=489112534 node_paths=PackedStringArray("target_node", "default_state")]
+script = ExtResource("3_mf2ua")
+target_node = NodePath("..")
+default_state = NodePath("ControlState")
+metadata/_custom_type_script = "uid://b38sn5c4l06dy"
+
+[node name="ControlState" type="Node" parent="StateMachine" unique_id=1720247725]
+script = ExtResource("4_244u8")
+metadata/_custom_type_script = "uid://kbjj8var5d3b"
+
+[node name="Timers" type="Node" parent="." unique_id=675531221]
+
+[node name="BoostTimer" type="Timer" parent="Timers" unique_id=1545066956]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 0.2
+one_shot = true
