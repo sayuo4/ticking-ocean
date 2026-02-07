@@ -5,6 +5,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yotv0"]
 shader = ExtResource("3_w5caj")
+shader_parameter/frequency = 0.003
 
 [node name="Main" type="Node2D" unique_id=405942397]
 script = ExtResource("1_jyjjr")

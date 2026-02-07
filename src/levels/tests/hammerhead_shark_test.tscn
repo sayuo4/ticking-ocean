@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bmopjig8k06k0"]
+
+[ext_resource type="PackedScene" uid="uid://drihxlqlbhohq" path="res://src/player/player.tscn" id="1_kqimq"]
+[ext_resource type="Script" uid="uid://dxcfeyhmrpdc1" path="res://src/levels/main/game_level.gd" id="1_sqrcj"]
+[ext_resource type="PackedScene" uid="uid://vjirohpgsiud" path="res://src/mobs/hammerhead_shark/hammerhead_shark.tscn" id="2_pgp7k"]
+
+[node name="HammerheadSharkTest" type="Node2D" unique_id=879339283]
+script = ExtResource("1_sqrcj")
+metadata/_custom_type_script = "uid://dxcfeyhmrpdc1"
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." unique_id=1245037256 instance=ExtResource("1_kqimq")]
+position = Vector2(23, 38)
+
+[node name="HammerheadShark" parent="." unique_id=804908254 node_paths=PackedStringArray("wandering_points") instance=ExtResource("2_pgp7k")]
+position = Vector2(224, 111)
+rotation = -3.1415925
+wandering_points = [NodePath("../SharkPoints/Point1"), NodePath("../SharkPoints/Point2"), NodePath("../SharkPoints/Point3"), NodePath("../SharkPoints/Point4")]
+
+[node name="SharkPoints" type="Node2D" parent="." unique_id=1733407686]
+
+[node name="Point1" type="Marker2D" parent="SharkPoints" unique_id=1756096541]
+position = Vector2(112, 35)
+
+[node name="Point2" type="Marker2D" parent="SharkPoints" unique_id=386885054]
+position = Vector2(258, 66)
+
+[node name="Point3" type="Marker2D" parent="SharkPoints" unique_id=1605816021]
+position = Vector2(225, 145)
+
+[node name="Point4" type="Marker2D" parent="SharkPoints" unique_id=792204121]
+position = Vector2(81, 143)

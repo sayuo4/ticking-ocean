@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://vjirohpgsiud"]
+
+[ext_resource type="Texture2D" uid="uid://8quwyfnavlmf" path="res://assets/mobs/hammerhead_shark.png" id="1_al01o"]
+[ext_resource type="Script" uid="uid://djq32ov5bywub" path="res://src/mobs/hammerhead_shark/hammerhead_shark.gd" id="1_mhmah"]
+[ext_resource type="Script" uid="uid://b38sn5c4l06dy" path="res://src/state_machine/state_machine.gd" id="3_itj4k"]
+[ext_resource type="Script" uid="uid://d1xwcq56usixr" path="res://src/mobs/hammerhead_shark/states/wandering_state.gd" id="4_sisro"]
+[ext_resource type="Script" uid="uid://c7r5cvqdyqfvp" path="res://src/mobs/hammerhead_shark/states/chase_state.gd" id="5_4dx18"]
+[ext_resource type="Script" uid="uid://cxpwfbef7tygy" path="res://src/mobs/hammerhead_shark/states/attack_state.gd" id="7_37af4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_itj4k"]
+radius = 59.07622
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhmah"]
+radius = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al01o"]
+size = Vector2(34, 5)
+
+[node name="HammerheadShark" type="Area2D" unique_id=804908254]
+rotation = 3.1415927
+script = ExtResource("1_mhmah")
+wandering_rotate_speed = 1.0
+wandering_swim_speed = 45.0
+wandering_acc = 3.0
+reached_point_range = 16.0
+chasing_rotate_speed = 1.0
+chasing_swim_speed = 60.0
+chasing_acc = 5.0
+dash_speed = 200.0
+dash_distance = 90.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=601766631]
+texture = ExtResource("1_al01o")
+flip_h = true
+flip_v = true
+region_enabled = true
+region_rect = Rect2(5, 9, 47, 19)
+
+[node name="DetectPlayerArea" type="Area2D" parent="." unique_id=1759300012]
+position = Vector2(29, -2.5352606e-06)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayerArea" unique_id=1525576402]
+shape = SubResource("CircleShape2D_itj4k")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="StartAttackArea" type="Area2D" parent="." unique_id=598540592]
+position = Vector2(24, -2.0981468e-06)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StartAttackArea" unique_id=1698706328]
+position = Vector2(7, -6.119594e-07)
+shape = SubResource("CircleShape2D_mhmah")
+debug_color = Color(1, 0.012358605, 0.049005166, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1822963569]
+position = Vector2(-2.1855695e-07, 0)
+shape = SubResource("RectangleShape2D_al01o")
+
+[node name="StateMachine" type="Node" parent="." unique_id=698222770 node_paths=PackedStringArray("target_node", "default_state")]
+script = ExtResource("3_itj4k")
+target_node = NodePath("..")
+default_state = NodePath("WanderingState")
+metadata/_custom_type_script = "uid://b38sn5c4l06dy"
+
+[node name="WanderingState" type="Node" parent="StateMachine" unique_id=1807528961]
+script = ExtResource("4_sisro")
+metadata/_custom_type_script = "uid://d1xwcq56usixr"
+
+[node name="ChaseState" type="Node" parent="StateMachine" unique_id=990294760]
+script = ExtResource("5_4dx18")
+metadata/_custom_type_script = "uid://c7r5cvqdyqfvp"
+
+[node name="AttackState" type="Node" parent="StateMachine" unique_id=1082834250]
+script = ExtResource("7_37af4")
+metadata/_custom_type_script = "uid://cxpwfbef7tygy"
+
+[connection signal="body_entered" from="." to="StateMachine/AttackState" method="_on_hammerhead_shark_body_entered"]
+[connection signal="body_entered" from="DetectPlayerArea" to="StateMachine/WanderingState" method="_on_detect_player_area_body_entered"]
+[connection signal="body_entered" from="StartAttackArea" to="StateMachine/ChaseState" method="_on_start_attack_area_body_entered"]
