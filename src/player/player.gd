@@ -24,7 +24,7 @@ func _ready() -> void:
 	var hud: HUD = Global.get_hud()
 	
 	if hud:
-		hud.start_oxygen_timer()
+		hud.oxygen_reduce_timer.start()
 		hud.oxygen_finished.connect(_on_oxygen_finished)
 
 func get_input_dir() -> float:

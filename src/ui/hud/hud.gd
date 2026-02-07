@@ -22,7 +22,11 @@ func set_oxygen(value: float) -> void:
 	var tween: Tween = get_tree().create_tween()
 	tween.tween_property(oxygen_bar, "value", value, 0.1)
 
-func start_oxygen_timer() -> void:
+func pause_oxygen_for(time_sec: float) -> void:
+	oxygen_reduce_timer.stop()
+	
+	await get_tree().create_timer(time_sec, false, true).timeout
+	
 	oxygen_reduce_timer.start()
 
 func _on_reduce_timer_timeout() -> void:

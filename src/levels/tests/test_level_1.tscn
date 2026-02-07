@@ -3,12 +3,7 @@
 [ext_resource type="Script" uid="uid://dxcfeyhmrpdc1" path="res://src/levels/main/game_level.gd" id="1_bvmjd"]
 [ext_resource type="PackedScene" uid="uid://drihxlqlbhohq" path="res://src/player/player.tscn" id="1_cxdpd"]
 [ext_resource type="PackedScene" uid="uid://dkgdmncksd8lq" path="res://src/map/sand_tilemap.tscn" id="3_bvmjd"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_cxdpd"]
-size = Vector3(8, 180, 1)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxdpd"]
-size = Vector2(8, 180)
+[ext_resource type="PackedScene" uid="uid://bxrnqpbi7yote" path="res://src/items/diving_cylinder/diving_cylinder.tscn" id="4_m0e13"]
 
 [node name="TestLevel1" type="Node2D" unique_id=837896800]
 script = ExtResource("1_bvmjd")
@@ -24,24 +19,5 @@ tile_map_data = PackedByteArray("AAAYAA8AAAACAAIAAAAYAA4AAAACAAEAAAAYAA0AAAACAAE
 [node name="Player" parent="." unique_id=1245037256 instance=ExtResource("1_cxdpd")]
 position = Vector2(153, 79)
 
-[node name="Wall1" type="StaticBody2D" parent="." unique_id=1164518762]
-position = Vector2(316, 90)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall1" unique_id=2004640620]
-self_modulate = Color(0, 0, 0, 1)
-mesh = SubResource("BoxMesh_cxdpd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall1" unique_id=2013887662]
-shape = SubResource("RectangleShape2D_cxdpd")
-
-[node name="Wall2" type="StaticBody2D" parent="." unique_id=1129729913]
-position = Vector2(250, 21)
-metadata/_edit_group_ = true
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Wall2" unique_id=1381803652]
-self_modulate = Color(0, 0, 0, 1)
-mesh = SubResource("BoxMesh_cxdpd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2" unique_id=428920482]
-shape = SubResource("RectangleShape2D_cxdpd")
+[node name="DivingCylinder" parent="." unique_id=1625797382 instance=ExtResource("4_m0e13")]
+position = Vector2(89, 20)
