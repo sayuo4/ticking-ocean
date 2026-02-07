@@ -33,3 +33,12 @@ position = Vector2(153, 79)
 
 [node name="DivingCylinder" parent="." unique_id=1625797382 instance=ExtResource("4_m0e13")]
 position = Vector2(89, 20)
+
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28396" to="TileMapLayer/@Area2D@28396" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28397" to="TileMapLayer/@Area2D@28397" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28398" to="TileMapLayer/@Area2D@28398" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28399" to="TileMapLayer/@Area2D@28399" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28400" to="TileMapLayer/@Area2D@28400" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28401" to="TileMapLayer/@Area2D@28401" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28402" to="TileMapLayer/@Area2D@28402" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMapLayer/@Area2D@28403" to="TileMapLayer/@Area2D@28403" method="_on_body_entered"]
