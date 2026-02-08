@@ -24,8 +24,8 @@ initial_velocity_max = 18.0
 angular_velocity_min = 99.999985
 angular_velocity_max = 199.99998
 gravity = Vector3(0, 9.8, 0)
-scale_min = 3.0
-scale_max = 6.0
+scale_min = 2.0
+scale_max = 4.0
 scale_curve = SubResource("CurveTexture_4saof")
 color_ramp = SubResource("GradientTexture1D_4saof")
 
@@ -35,7 +35,6 @@ script = ExtResource("1_s117o")
 [node name="SandParticles" type="GPUParticles2D" parent="." unique_id=289492513]
 unique_name_in_owner = true
 emitting = false
-amount = 32
 lifetime = 2.0
 one_shot = true
 explosiveness = 0.9
