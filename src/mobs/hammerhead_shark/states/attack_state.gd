@@ -22,4 +22,4 @@ func _on_hammerhead_shark_body_entered(body: Node2D) -> void:
 	var player: Player = body as Player
 	
 	if player:
-		pass # TODO: Apply damage.
+		player.kill()

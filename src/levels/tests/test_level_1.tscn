@@ -14,6 +14,7 @@ scenes/1/scene = ExtResource("3_ya63w")
 sources/0 = SubResource("TileSetScenesCollectionSource_m0e13")
 
 [node name="TestLevel1" type="Node2D" unique_id=837896800]
+process_mode = 1
 script = ExtResource("1_bvmjd")
 metadata/_edit_lock_ = true
 
@@ -35,10 +36,10 @@ position = Vector2(153, 79)
 position = Vector2(89, 20)
 
 [connection signal="body_entered" from="SpikesTilemap/Spikes" to="SpikesTilemap/Spikes" method="_on_body_entered"]
-[connection signal="body_entered" from="SpikesTilemap/@Area2D@48167" to="SpikesTilemap/@Area2D@48167" method="_on_body_entered"]
-[connection signal="body_entered" from="SpikesTilemap/@Area2D@48168" to="SpikesTilemap/@Area2D@48168" method="_on_body_entered"]
-[connection signal="body_entered" from="SpikesTilemap/@Area2D@48169" to="SpikesTilemap/@Area2D@48169" method="_on_body_entered"]
-[connection signal="body_entered" from="SpikesTilemap/@Area2D@48170" to="SpikesTilemap/@Area2D@48170" method="_on_body_entered"]
-[connection signal="body_entered" from="SpikesTilemap/@Area2D@48171" to="SpikesTilemap/@Area2D@48171" method="_on_body_entered"]
-[connection signal="body_entered" from="SpikesTilemap/@Area2D@48172" to="SpikesTilemap/@Area2D@48172" method="_on_body_entered"]
-[connection signal="body_entered" from="SpikesTilemap/@Area2D@48173" to="SpikesTilemap/@Area2D@48173" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikesTilemap/@Area2D@19082" to="SpikesTilemap/@Area2D@19082" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikesTilemap/@Area2D@19083" to="SpikesTilemap/@Area2D@19083" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikesTilemap/@Area2D@19084" to="SpikesTilemap/@Area2D@19084" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikesTilemap/@Area2D@19085" to="SpikesTilemap/@Area2D@19085" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikesTilemap/@Area2D@19086" to="SpikesTilemap/@Area2D@19086" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikesTilemap/@Area2D@19087" to="SpikesTilemap/@Area2D@19087" method="_on_body_entered"]
+[connection signal="body_entered" from="SpikesTilemap/@Area2D@19088" to="SpikesTilemap/@Area2D@19088" method="_on_body_entered"]

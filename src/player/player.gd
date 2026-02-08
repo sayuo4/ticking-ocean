@@ -19,6 +19,7 @@ extends CharacterBody2D
 
 @onready var shape: Node2D = $Shape as Node2D
 @onready var boost_timer: Timer = %BoostTimer as Timer
+@onready var state_machine: StateMachine = $StateMachine as StateMachine
 
 func _ready() -> void:
 	var hud: HUD = Global.get_hud()
@@ -65,6 +66,8 @@ func update_flip_h() -> void:
 	var margin: float = 0.1
 	shape.scale.x = 1.0 if rotation_degrees >= 0.0 or rotation_degrees < -180.0 + margin else -1.0
 
+func kill() -> void:
+	state_machine.activate_state_by_name.call_deferred("DeathState")
+
 func _on_oxygen_finished() -> void:
-	print("Oxygen finished!")
-	# TODO: Damage the player.
+	kill()

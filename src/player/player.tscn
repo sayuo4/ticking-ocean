@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://075kmh7unm0c" path="res://assets/player/player.png" id="2_rxibo"]
 [ext_resource type="Script" uid="uid://b38sn5c4l06dy" path="res://src/state_machine/state_machine.gd" id="3_mf2ua"]
 [ext_resource type="Script" uid="uid://kbjj8var5d3b" path="res://src/player/states/control_state.gd" id="4_244u8"]
+[ext_resource type="Script" uid="uid://cgtvgq0df0b53" path="res://src/player/states/death_state.gd" id="5_5f2sf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4anbu"]
 size = Vector2(5, 21)
@@ -42,6 +43,10 @@ metadata/_custom_type_script = "uid://b38sn5c4l06dy"
 [node name="ControlState" type="Node" parent="StateMachine" unique_id=1720247725]
 script = ExtResource("4_244u8")
 metadata/_custom_type_script = "uid://kbjj8var5d3b"
+
+[node name="DeathState" type="Node" parent="StateMachine" unique_id=95693752]
+script = ExtResource("5_5f2sf")
+metadata/_custom_type_script = "uid://cgtvgq0df0b53"
 
 [node name="Timers" type="Node" parent="." unique_id=675531221]
 

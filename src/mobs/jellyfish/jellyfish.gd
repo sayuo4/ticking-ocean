@@ -127,4 +127,4 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 	var player: Player = body as Player
 	
 	if player:
-		pass # TODO: Damage the player.
+		player.kill()

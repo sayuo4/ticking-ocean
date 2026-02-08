@@ -15,6 +15,7 @@ func _ready() -> void:
 	reset()
 
 func reset() -> void:
+	oxygen_bar.value = oxygen_bar.max_value
 	oxygen = oxygen_bar.max_value
 
 func set_oxygen(value: float) -> void:
