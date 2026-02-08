@@ -123,14 +123,20 @@ func try_bounce(delta: float) -> void:
 		return
 	
 	var dir: Vector2 = speed.sign()
+	var collision_position: Vector2 = get_last_slide_collision().get_position()
 	var collision_dir: Vector2 = Vector2.ZERO
 	
 	if is_on_floor() or is_on_ceiling():
 		velocity.y = -dir.y * bounce_of_wall_force.y
 		collision_dir = Vector2.DOWN * dir.y
+		if SandBounceParticles.get_particles_amount(self) < 10:
+			SandBounceParticles.from_scene(collision_position, -dir)
+		
 	elif is_on_wall():
 		velocity.x = -dir.x * bounce_of_wall_force.x
 		collision_dir = Vector2.RIGHT * dir.x
+		if SandBounceParticles.get_particles_amount(self) < 10:
+			SandBounceParticles.from_scene(collision_position, -dir)
 	
 	player_bounced.emit(collision_dir)
 	bounce_timer.start()

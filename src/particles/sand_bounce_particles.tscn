@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://c6hw6y40w6jeq"]
+
+[ext_resource type="Script" uid="uid://cukptw5bn6fk7" path="res://src/particles/sand_bounce_particles.gd" id="1_s117o"]
+
+[sub_resource type="Gradient" id="Gradient_s117o"]
+colors = PackedColorArray(0.8352941, 0.654902, 0.5529412, 1, 0.91764706, 0.78431374, 0.67058825, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4saof"]
+gradient = SubResource("Gradient_s117o")
+
+[sub_resource type="Curve" id="Curve_s117o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.57916665, 0.32584274), -1.5557476, -1.5557476, 0, 0, Vector2(0.7708334, 0.1685394), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4saof"]
+curve = SubResource("Curve_s117o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4saof"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 8, 1)
+initial_velocity_min = 6.0
+initial_velocity_max = 18.0
+angular_velocity_min = 99.999985
+angular_velocity_max = 199.99998
+gravity = Vector3(0, 9.8, 0)
+scale_min = 3.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_4saof")
+color_ramp = SubResource("GradientTexture1D_4saof")
+
+[node name="SandBounceParticles" type="Node2D" unique_id=2986046]
+script = ExtResource("1_s117o")
+
+[node name="SandParticles" type="GPUParticles2D" parent="." unique_id=289492513]
+unique_name_in_owner = true
+emitting = false
+amount = 32
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_4saof")
