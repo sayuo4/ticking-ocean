@@ -43,6 +43,11 @@ collision_enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1860651927]
 process_mode = 3
+limit_left = 0
+limit_top = 0
+limit_bottom = 180
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 
 [node name="WinCylinder" parent="." unique_id=2074845977 instance=ExtResource("4_88vja")]
 
