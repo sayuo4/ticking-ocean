@@ -40,7 +40,7 @@ static func get_particles_amount(accesor: Node) -> int:
 	return accesor.get_tree().get_nodes_in_group(GROUP_NAME).size()
 
 func setup_dispawn_timer() -> void:
-	dispawn_timer.wait_time = 600.0
+	dispawn_timer.wait_time = %SandParticles.lifetime
 	dispawn_timer.timeout.connect(self.queue_free)
 	add_child(dispawn_timer)
 	dispawn_timer.start()
