@@ -26,6 +26,60 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="Animation" id="Animation_cvkdw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4600, -2040)]
+}
+
+[sub_resource type="Animation" id="Animation_jobw0"]
+resource_name = "death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4600, -2040), Vector2(-2560, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_udh2q"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2560, 0), Vector2(-4600, -2040)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cvkdw"]
+_data = {
+&"RESET": SubResource("Animation_cvkdw"),
+&"death": SubResource("Animation_jobw0"),
+&"start": SubResource("Animation_udh2q")
+}
+
 [node name="HUD" type="Control" unique_id=680344226 groups=["hud"]]
 layout_mode = 3
 anchors_preset = 15
@@ -51,5 +105,19 @@ show_percentage = false
 unique_name_in_owner = true
 process_callback = 0
 wait_time = 0.1
+
+[node name="DeathAnim" type="ColorRect" parent="." unique_id=2065645212]
+layout_mode = 0
+offset_left = -4600.0
+offset_top = -2040.0
+offset_right = 520.0
+offset_bottom = 840.0
+rotation = -0.7853982
+pivot_offset_ratio = Vector2(0.5, 0)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1780584538]
+root_node = NodePath("../DeathAnim")
+libraries/ = SubResource("AnimationLibrary_cvkdw")
 
 [connection signal="timeout" from="OxygenBar/ReduceTimer" to="." method="_on_reduce_timer_timeout"]
