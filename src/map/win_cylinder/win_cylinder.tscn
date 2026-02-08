@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://btcwfmryqcrp0"]
 
 [ext_resource type="Texture2D" uid="uid://cxfs8quiptj7b" path="res://assets/map/win_cylinder/front_win_cylinder.png" id="1_me5no"]
-[ext_resource type="Script" uid="uid://bxmb6si7lhm2d" path="res://src/map/win_cylinder/win_cylinder.gd" id="1_nl78x"]
+[ext_resource type="Script" path="res://src/map/win_cylinder/win_cylinder.gd" id="1_nl78x"]
 [ext_resource type="Texture2D" uid="uid://cwtfm50rgcdcs" path="res://assets/map/win_cylinder/back_win_cylinder.png" id="2_nl78x"]
 [ext_resource type="Texture2D" uid="uid://075kmh7unm0c" path="res://assets/player/player.png" id="4_j1f6g"]
 
