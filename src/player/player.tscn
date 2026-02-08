@@ -75,6 +75,7 @@ _data = {
 size = Vector2(5, 21)
 
 [node name="Player" type="CharacterBody2D" unique_id=1245037256 groups=["player"]]
+rotation = 0.7853982
 script = ExtResource("1_4anbu")
 start_oxygen_time = 0.5
 rotate_speed = 4.0

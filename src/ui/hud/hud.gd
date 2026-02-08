@@ -4,13 +4,11 @@ extends Control
 signal oxygen_finished
 
 @export var oxygen_reduce_amount: float
-@export var time_after_end_anim: float # Waited once after and once before the transitions
 
 var oxygen: float: set = set_oxygen
 
 @onready var oxygen_bar: ProgressBar = $OxygenBar as ProgressBar
 @onready var oxygen_reduce_timer: Timer = %ReduceTimer as Timer
-@onready var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
 
 func _ready() -> void:
 	reset()

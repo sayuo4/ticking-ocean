@@ -16,6 +16,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause") and enabled:
 		paused = not paused
+		get_viewport().set_input_as_handled()
 
 func set_paused(value: bool) -> void:
 	paused = value
@@ -24,6 +25,13 @@ func set_paused(value: bool) -> void:
 	
 	if value:
 		continue_button.grab_focus()
+
+func can_pause() -> bool:
+	var start_menu: StartMenu = Global.get_start_menu()
+	
+	var started: bool = start_menu.started if start_menu else true
+	
+	return enabled and started
 
 func _on_continue_button_pressed() -> void:
 	paused = false
