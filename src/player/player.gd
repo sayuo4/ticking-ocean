@@ -80,19 +80,19 @@ func apply_boost() -> void:
 
 func apply_animations() -> void:
 	if velocity.length() < swimming_speed_threshhold:
-		if %Anim.current_animation == &"swim": # wait the swim anim to finish
+		if %Anim.current_animation == SWIM_ANIM: # wait the swim anim to finish
 			wait_for_swim_anim()
 			return
 		
-		%Anim.play(&"idle")
+		%Anim.play(IDLE_ANIM)
 	else:
-		%Anim.play(&"swim", 0.1)
+		%Anim.play(SWIM_ANIM, 0.1)
 
 
 func wait_for_swim_anim() -> void:
 	var animation_end: float = %Anim.current_animation_length - 0.2
 	if %Anim.current_animation_position > animation_end:
-		%Anim.play(&"idle")
+		%Anim.play(IDLE_ANIM)
 
 
 func try_boost() -> void:
