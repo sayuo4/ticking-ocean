@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+@export var start_oxygen_time: float
+
 @export_group("Movement")
 @export var rotate_speed: float
 
@@ -38,6 +40,7 @@ func _ready() -> void:
 	var hud: HUD = Global.get_hud()
 	
 	if hud:
+		await get_tree().create_timer(start_oxygen_time).timeout
 		hud.oxygen_reduce_timer.start()
 		hud.oxygen_finished.connect(_on_oxygen_finished)
 

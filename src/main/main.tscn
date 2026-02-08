@@ -58,4 +58,3 @@ layer = 3
 
 [node name="HUD" parent="HUDLayer" unique_id=680344226 instance=ExtResource("3_jyjjr")]
 unique_name_in_owner = true
-process_mode = 1
