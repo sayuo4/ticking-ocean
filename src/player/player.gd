@@ -55,6 +55,11 @@ func _ready() -> void:
 		await get_tree().create_timer(start_oxygen_time).timeout
 		hud.oxygen_reduce_timer.start()
 		hud.oxygen_finished.connect(_on_oxygen_finished)
+	
+	var pause_menu: PauseMenu = Global.get_pause_menu()
+	
+	if pause_menu:
+		pause_menu.enabled = true
 
 func get_input_dir() -> float:
 	return Input.get_axis("left", "right")
@@ -84,7 +89,6 @@ func apply_boost() -> void:
 	
 	if velocity.length() > max_boost_speed:
 		velocity = velocity.normalized() * max_boost_speed
-
 
 func apply_animations() -> void:
 	if velocity.length() < swimming_speed_threshhold:

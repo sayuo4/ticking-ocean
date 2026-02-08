@@ -24,6 +24,11 @@ func get_player() -> Player:
 	
 	return player
 
+func get_pause_menu() -> PauseMenu:
+	var pause_menu: PauseMenu = get_tree().get_first_node_in_group("pause_menu") as PauseMenu
+	
+	return pause_menu
+
 func switch_level_to_packed(level: PackedScene, play_end_anim: bool = false) -> void:
 	var main: Main = get_main()
 	

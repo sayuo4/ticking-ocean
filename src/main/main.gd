@@ -7,6 +7,14 @@ var current_level: Node
 
 @onready var sub_viewport: SubViewport = %SubViewport as SubViewport
 @onready var hud: HUD = %HUD as HUD
+@onready var pause_menu: PauseMenu = %PauseMenu as PauseMenu
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("fullscreen") and not OS.get_name() == "Web":
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func switch_level_to_packed(level: PackedScene, play_end_anim: bool = false) -> void:
 	if not level:
@@ -22,9 +30,9 @@ func switch_level_to_packed(level: PackedScene, play_end_anim: bool = false) -> 
 	
 	var level_inst: Node = level.instantiate()
 	
-	
 	hud.reset()
 	hud.oxygen_reduce_timer.stop()
+	pause_menu.enabled = false
 	sub_viewport.add_child.call_deferred(level_inst)
 	level_inst.set_deferred("owner", self)
 	set_deferred("current_level", level_inst)

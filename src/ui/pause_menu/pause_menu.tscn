@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bmomktx7pakis"]
+
+[ext_resource type="Script" uid="uid://dfaaj7qs5gbrr" path="res://src/ui/pause_menu/pause_menu.gd" id="1_fsbbv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsbbv"]
+bg_color = Color(0, 0, 0, 0.49803922)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fsbbv"]
+
+[node name="PauseMenu" type="Control" unique_id=2093979586 groups=["pause_menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fsbbv")
+
+[node name="BG" type="Panel" parent="." unique_id=720281537]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fsbbv")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1144733485]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PausePanel" type="PanelContainer" parent="CenterContainer" unique_id=767866795]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fsbbv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PausePanel" unique_id=1658924092]
+layout_mode = 2
+
+[node name="ContinueMargin" type="MarginContainer" parent="CenterContainer/PausePanel/VBoxContainer" unique_id=1048150186]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ContinueButton" type="Button" parent="CenterContainer/PausePanel/VBoxContainer/ContinueMargin" unique_id=1757876515]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 112)
+layout_mode = 2
+focus_neighbor_top = NodePath("../../QuitMargin/QuitButton")
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "Continue"
+
+[node name="RestartMargin" type="MarginContainer" parent="CenterContainer/PausePanel/VBoxContainer" unique_id=819140737]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="RestartButton" type="Button" parent="CenterContainer/PausePanel/VBoxContainer/RestartMargin" unique_id=263002202]
+custom_minimum_size = Vector2(320, 112)
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "Restart"
+
+[node name="QuitMargin" type="MarginContainer" parent="CenterContainer/PausePanel/VBoxContainer" unique_id=884573572]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="QuitButton" type="Button" parent="CenterContainer/PausePanel/VBoxContainer/QuitMargin" unique_id=1051781084]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 112)
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../../ContinueMargin/ContinueButton")
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/font_size = 32
+text = "Quit Game"
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1746661031]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -61.0
+offset_right = 488.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="FullScreenText" type="RichTextLabel" parent="MarginContainer" unique_id=1005895113]
+layout_mode = 2
+theme_override_constants/outline_size = 16
+theme_override_font_sizes/normal_font_size = 32
+text = "Press F11 to toggle fullscreen."
+fit_content = true
+
+[connection signal="pressed" from="CenterContainer/PausePanel/VBoxContainer/ContinueMargin/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PausePanel/VBoxContainer/RestartMargin/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/PausePanel/VBoxContainer/QuitMargin/QuitButton" to="." method="_on_quit_button_pressed"]

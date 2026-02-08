@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ds1xpikx6jwea" path="res://src/main/main.gd" id="1_jyjjr"]
 [ext_resource type="PackedScene" uid="uid://dqn04ibwpepa2" path="res://src/ui/hud/hud.tscn" id="3_jyjjr"]
 [ext_resource type="Shader" uid="uid://bfo1ha4cx12v6" path="res://src/shaders/water_shader.gdshader" id="3_w5caj"]
+[ext_resource type="PackedScene" uid="uid://bmomktx7pakis" path="res://src/ui/pause_menu/pause_menu.tscn" id="4_djufw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yotv0"]
 shader = ExtResource("3_w5caj")
@@ -57,4 +58,10 @@ metadata/_edit_use_anchors_ = true
 layer = 3
 
 [node name="HUD" parent="HUDLayer" unique_id=680344226 instance=ExtResource("3_jyjjr")]
+unique_name_in_owner = true
+
+[node name="PauseMenuLayer" type="CanvasLayer" parent="." unique_id=1244969630]
+layer = 4
+
+[node name="PauseMenu" parent="PauseMenuLayer" unique_id=2093979586 instance=ExtResource("4_djufw")]
 unique_name_in_owner = true

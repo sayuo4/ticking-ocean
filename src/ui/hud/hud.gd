@@ -34,4 +34,5 @@ func pause_oxygen_for(time_sec: float) -> void:
 	oxygen_reduce_timer.start()
 
 func _on_reduce_timer_timeout() -> void:
-	oxygen -= oxygen_reduce_amount
+	if not get_tree().paused:
+		oxygen -= oxygen_reduce_amount

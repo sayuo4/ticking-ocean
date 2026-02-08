@@ -8,6 +8,16 @@ func _state_machine_ready() -> void:
 	fade = 0.0
 
 func _enter(_previous_state: State) -> void:
+	var pause_menu: PauseMenu = Global.get_pause_menu()
+	
+	if pause_menu:
+		pause_menu.enabled = false
+	
+	var hud: HUD = Global.get_hud()
+	
+	if hud:
+		hud.oxygen_reduce_timer.stop()
+	
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "fade", 1.0, player.fade_time)
 	
