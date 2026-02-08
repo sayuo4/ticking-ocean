@@ -19,6 +19,7 @@ func _physics_update(_delta: float) -> void:
 	apply_dash()
 	player.round_values()
 	
+	player.apply_animations()
 	player.move_and_slide()
 	
 	if player.global_position.distance_to(start_point) >= player.dash_distance or player.get_slide_collision_count() > 0:

@@ -28,6 +28,7 @@ extends CharacterBody2D
 @export_group("Animation")
 @export var fade_time: float
 @export var after_fade_time: float
+@export var swimming_speed_threshhold: float
 
 @onready var shape: Node2D = $Shape as Node2D
 @onready var state_machine: StateMachine = $StateMachine as StateMachine
@@ -68,6 +69,9 @@ func apply_boost() -> void:
 	
 	if velocity.length() > max_boost_speed:
 		velocity = velocity.normalized() * max_boost_speed
+
+func apply_animations() -> void:
+	%Anim.play(&"idle" if velocity.length() < swimming_speed_threshhold else &"swim", 0.1)
 
 func try_boost() -> void:
 	if Input.is_action_just_pressed("boost") and boost_timer.is_stopped():
