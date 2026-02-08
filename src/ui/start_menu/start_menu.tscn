@@ -191,7 +191,7 @@ theme_override_font_sizes/normal_font_size = 32
 text = "Press shift to dash."
 fit_content = true
 
-[node name="DeathAnim" type="ColorRect" parent="." unique_id=212053413]
+[node name="TransitionRect" type="ColorRect" parent="." unique_id=212053413]
 visible = false
 z_index = 10
 layout_mode = 0
@@ -204,5 +204,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1656849534]
 process_mode = 3
-root_node = NodePath("../DeathAnim")
+root_node = NodePath("../TransitionRect")
 libraries/ = SubResource("AnimationLibrary_87wup")

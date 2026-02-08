@@ -9,8 +9,10 @@ var started: bool: set = set_started
 @onready var arrow_text: RichTextLabel = %ArrowText as RichTextLabel
 @onready var swim_text: RichTextLabel = %SwimText as RichTextLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
+@onready var transition_rect: ColorRect = $TransitionRect as ColorRect
 
 func _ready() -> void:
+	transition_rect.visible = true
 	started = false
 
 func _input(event: InputEvent) -> void:
