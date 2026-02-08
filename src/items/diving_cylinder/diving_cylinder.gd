@@ -13,6 +13,7 @@ var fade: float: set = set_fade
 @onready var point_light: PointLight2D = $PointLight2D as PointLight2D
 
 func _ready() -> void:
+	$Sprite2D.material = $Sprite2D.material.duplicate()
 	animation_player.play("pingpong")
 
 func _on_body_entered(body: Node2D) -> void:
