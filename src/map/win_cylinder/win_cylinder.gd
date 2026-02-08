@@ -12,7 +12,8 @@ func _on_detect_player_area_body_entered(body: Node2D) -> void:
 	
 	if player:
 		player_shape.scale.y = player.shape.scale.x
-		player.queue_free()
+		player.hide()
+		player.process_mode = Node.PROCESS_MODE_DISABLED
 		
 		animation_player.play("player_enter")
 		await animation_player.animation_finished
