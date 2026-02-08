@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://drp1rjwbbo2ys"]
+
+[ext_resource type="Texture2D" uid="uid://c35nnp56y6h2i" path="res://assets/map/saw_blade.png" id="1_3ilq0"]
+[ext_resource type="Script" uid="uid://dxf1f4xvy06hm" path="res://src/map/saw_blade/saw_blade.gd" id="1_sts2r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sts2r"]
+radius = 17.0
+
+[node name="SawBlade" type="Area2D" unique_id=676301008]
+script = ExtResource("1_sts2r")
+spin_speed = 5.0
+move_speed = 60.0
+move_acc = 15.0
+reached_point_distance = 8.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1258292829]
+texture = ExtResource("1_3ilq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1421106530]
+shape = SubResource("CircleShape2D_sts2r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
