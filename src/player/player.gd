@@ -17,14 +17,22 @@ extends CharacterBody2D
 @export var gravity: float
 @export var gravity_limit: float
 
+@export_group("Dash")
+@export var dash_speed: float
+@export var dash_distance: float
+@export var dash_oxygen_reduce_amount: float
+@export var after_dash_velocity_ratio: float
+
 @export_group("Animation")
 @export var fade_time: float
 @export var after_fade_time: float
 
 @onready var shape: Node2D = $Shape as Node2D
-@onready var boost_timer: Timer = %BoostTimer as Timer
 @onready var state_machine: StateMachine = $StateMachine as StateMachine
 @onready var sprite: Sprite2D = %Sprite2D as Sprite2D
+
+@onready var boost_timer: Timer = %BoostTimer as Timer
+@onready var dash_timer: Timer = %DashTimer as Timer
 
 func _ready() -> void:
 	var hud: HUD = Global.get_hud()
@@ -62,6 +70,15 @@ func try_boost() -> void:
 	if Input.is_action_just_pressed("boost") and boost_timer.is_stopped():
 		apply_boost()
 		boost_timer.start()
+
+func try_dash() -> void:
+	var hud: HUD = Global.get_hud()
+	
+	if hud and hud.oxygen <= dash_oxygen_reduce_amount:
+		return
+	
+	if Input.is_action_just_pressed("dash") and dash_timer.is_stopped():
+		state_machine.activate_state_by_name.call_deferred("DashState")
 
 func round_values() -> void:
 	velocity = velocity.round()

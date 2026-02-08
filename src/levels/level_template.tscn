@@ -35,4 +35,7 @@ collision_enabled = false
 [node name="Player" parent="." unique_id=1245037256 instance=ExtResource("4_51tk5")]
 position = Vector2(153, 79)
 
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1860651927]
+process_mode = 3
+
 [node name="OxygenCylinders" type="Node2D" parent="." unique_id=999999168]

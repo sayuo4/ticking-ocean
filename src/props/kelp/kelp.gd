@@ -25,9 +25,6 @@ func _generate_stems() -> void:
 	if min_tall && max_tall:
 		tall = randi_range(min_tall, max_tall)
 	
-	printt(min_tall, max_tall)
-	print(tall)
-	
 	# root
 	%RootSprite.texture = root_texture
 	%RootSprite.position.y = 0.0

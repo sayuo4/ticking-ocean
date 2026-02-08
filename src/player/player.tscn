@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://b38sn5c4l06dy" path="res://src/state_machine/state_machine.gd" id="3_mf2ua"]
 [ext_resource type="Script" uid="uid://kbjj8var5d3b" path="res://src/player/states/control_state.gd" id="4_244u8"]
 [ext_resource type="Script" uid="uid://cgtvgq0df0b53" path="res://src/player/states/death_state.gd" id="5_5f2sf"]
+[ext_resource type="Script" uid="uid://ctkln7sjymj52" path="res://src/player/states/dash_state.gd" id="6_o822w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o822w"]
 shader = ExtResource("2_jiejy")
@@ -25,6 +26,10 @@ boost_speed = 50.0
 max_boost_speed = 100.0
 gravity = 1.0
 gravity_limit = 25.0
+dash_speed = 200.0
+dash_distance = 30.0
+dash_oxygen_reduce_amount = 15.0
+after_dash_velocity_ratio = 0.3
 fade_time = 0.3
 after_fade_time = 0.3
 metadata/_edit_group_ = true
@@ -54,6 +59,10 @@ metadata/_custom_type_script = "uid://b38sn5c4l06dy"
 script = ExtResource("4_244u8")
 metadata/_custom_type_script = "uid://kbjj8var5d3b"
 
+[node name="DashState" type="Node" parent="StateMachine" unique_id=341689706]
+script = ExtResource("6_o822w")
+metadata/_custom_type_script = "uid://ctkln7sjymj52"
+
 [node name="DeathState" type="Node" parent="StateMachine" unique_id=95693752]
 script = ExtResource("5_5f2sf")
 metadata/_custom_type_script = "uid://cgtvgq0df0b53"
@@ -61,6 +70,12 @@ metadata/_custom_type_script = "uid://cgtvgq0df0b53"
 [node name="Timers" type="Node" parent="." unique_id=675531221]
 
 [node name="BoostTimer" type="Timer" parent="Timers" unique_id=1545066956]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="DashTimer" type="Timer" parent="Timers" unique_id=1236706491]
 unique_name_in_owner = true
 process_callback = 0
 wait_time = 0.2
