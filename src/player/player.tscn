@@ -21,8 +21,10 @@ gravity_limit = 25.0
 metadata/_edit_group_ = true
 
 [node name="Shape" type="Node2D" parent="." unique_id=380790134]
+position = Vector2(1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Shape" unique_id=1882161697]
+position = Vector2(-2, 0)
 rotation = -0.7853982
 scale = Vector2(0.9999999, 0.9999999)
 texture = ExtResource("2_rxibo")
