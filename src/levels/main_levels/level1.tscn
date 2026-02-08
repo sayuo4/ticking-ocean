@@ -1,0 +1,212 @@
+[gd_scene format=4 uid="uid://reo01e37m7mv"]
+
+[ext_resource type="PackedScene" uid="uid://b0kebrutcrd3b" path="res://src/levels/level_template.tscn" id="1_o70dx"]
+[ext_resource type="PackedScene" uid="uid://dgt1n3wm7c3qs" path="res://src/props/kelp/kelp.tscn" id="2_jy0rc"]
+[ext_resource type="PackedScene" uid="uid://bxrnqpbi7yote" path="res://src/items/diving_cylinder/diving_cylinder.tscn" id="3_b053e"]
+[ext_resource type="PackedScene" uid="uid://vjirohpgsiud" path="res://src/mobs/hammerhead_shark/hammerhead_shark.tscn" id="3_hr5w3"]
+[ext_resource type="Script" uid="uid://cb76xkdwgfcht" path="res://src/mobs/background_flag.gd" id="4_g2x3e"]
+[ext_resource type="PackedScene" uid="uid://ch256pmtstlsy" path="res://src/mobs/jellyfish/jellyfish.tscn" id="5_hyg2h"]
+
+[node name="Level1" unique_id=701603454 instance=ExtResource("1_o70dx")]
+
+[node name="Kelp" parent="Background/Layer1" parent_id_path=PackedInt32Array(1617644607) index="0" unique_id=1138391068 instance=ExtResource("2_jy0rc")]
+position = Vector2(96, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp2" parent="Background/Layer1" parent_id_path=PackedInt32Array(1617644607) index="1" unique_id=1514525083 instance=ExtResource("2_jy0rc")]
+position = Vector2(200, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp3" parent="Background/Layer1" parent_id_path=PackedInt32Array(1617644607) index="2" unique_id=2086661590 instance=ExtResource("2_jy0rc")]
+position = Vector2(304, 192)
+tall = 10
+max_tall = 15
+
+[node name="HammerheadShark" parent="Background/Layer1" parent_id_path=PackedInt32Array(1617644607) index="3" unique_id=804908254 node_paths=PackedStringArray("wandering_points") instance=ExtResource("3_hr5w3")]
+position = Vector2(424, 80)
+wandering_points = [NodePath("../SharkPoints/Point1"), NodePath("../SharkPoints/Point2"), NodePath("../SharkPoints/Point3"), NodePath("../SharkPoints/Point4")]
+
+[node name="BackgroundFlag" type="Node" parent="Background/Layer1/HammerheadShark" index="5" unique_id=1254017964]
+script = ExtResource("4_g2x3e")
+metadata/_custom_type_script = "uid://cb76xkdwgfcht"
+
+[node name="HammerheadShark2" parent="Background/Layer1" parent_id_path=PackedInt32Array(1617644607) index="4" unique_id=1339330134 node_paths=PackedStringArray("wandering_points") instance=ExtResource("3_hr5w3")]
+position = Vector2(232, 144)
+wandering_points = [NodePath("../SharkPoints/Point1"), NodePath("../SharkPoints/Point2"), NodePath("../SharkPoints/Point3"), NodePath("../SharkPoints/Point4")]
+
+[node name="BackgroundFlag" type="Node" parent="Background/Layer1/HammerheadShark2" index="5" unique_id=445595737]
+script = ExtResource("4_g2x3e")
+metadata/_custom_type_script = "uid://cb76xkdwgfcht"
+
+[node name="HammerheadShark3" parent="Background/Layer1" parent_id_path=PackedInt32Array(1617644607) index="5" unique_id=1566198165 node_paths=PackedStringArray("wandering_points") instance=ExtResource("3_hr5w3")]
+position = Vector2(856, 144)
+wandering_points = [NodePath("../SharkPoints/Point1"), NodePath("../SharkPoints/Point2"), NodePath("../SharkPoints/Point3"), NodePath("../SharkPoints/Point4")]
+
+[node name="BackgroundFlag" type="Node" parent="Background/Layer1/HammerheadShark3" index="5" unique_id=2138833242]
+script = ExtResource("4_g2x3e")
+metadata/_custom_type_script = "uid://cb76xkdwgfcht"
+
+[node name="SharkPoints" type="Node2D" parent="Background/Layer1" parent_id_path=PackedInt32Array(1617644607) index="6" unique_id=2041411777]
+
+[node name="Point1" type="Marker2D" parent="Background/Layer1/SharkPoints" index="0" unique_id=332664086]
+position = Vector2(88, 40)
+
+[node name="Point2" type="Marker2D" parent="Background/Layer1/SharkPoints" index="1" unique_id=592562092]
+position = Vector2(144, 136)
+
+[node name="Point3" type="Marker2D" parent="Background/Layer1/SharkPoints" index="2" unique_id=1270872060]
+position = Vector2(280, 72)
+
+[node name="Point4" type="Marker2D" parent="Background/Layer1/SharkPoints" index="3" unique_id=1564359683]
+position = Vector2(392, 120)
+
+[node name="Point5" type="Marker2D" parent="Background/Layer1/SharkPoints" index="4" unique_id=814480457]
+position = Vector2(496, 152)
+
+[node name="Point6" type="Marker2D" parent="Background/Layer1/SharkPoints" index="5" unique_id=680715435]
+position = Vector2(608, 64)
+
+[node name="Point7" type="Marker2D" parent="Background/Layer1/SharkPoints" index="6" unique_id=1791783044]
+position = Vector2(688, 152)
+
+[node name="Point8" type="Marker2D" parent="Background/Layer1/SharkPoints" index="7" unique_id=1919983372]
+position = Vector2(760, 96)
+
+[node name="Kelp" parent="Background/Layer2" parent_id_path=PackedInt32Array(181032568) index="0" unique_id=2025737570 instance=ExtResource("2_jy0rc")]
+position = Vector2(72, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp2" parent="Background/Layer2" parent_id_path=PackedInt32Array(181032568) index="1" unique_id=1820985637 instance=ExtResource("2_jy0rc")]
+position = Vector2(176, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp3" parent="Background/Layer2" parent_id_path=PackedInt32Array(181032568) index="2" unique_id=863127376 instance=ExtResource("2_jy0rc")]
+position = Vector2(280, 192)
+tall = 10
+max_tall = 15
+
+[node name="Jellyfish" parent="Background/Layer2" parent_id_path=PackedInt32Array(181032568) index="3" unique_id=204815989 instance=ExtResource("5_hyg2h")]
+position = Vector2(344, 168)
+
+[node name="BackgroundFlag" type="Node" parent="Background/Layer2/Jellyfish" index="4" unique_id=121516027]
+script = ExtResource("4_g2x3e")
+metadata/_custom_type_script = "uid://cb76xkdwgfcht"
+
+[node name="Kelp" parent="Background/Layer3" parent_id_path=PackedInt32Array(2028132504) index="0" unique_id=1901309560 instance=ExtResource("2_jy0rc")]
+position = Vector2(120, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp2" parent="Background/Layer3" parent_id_path=PackedInt32Array(2028132504) index="1" unique_id=905904376 instance=ExtResource("2_jy0rc")]
+position = Vector2(224, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp3" parent="Background/Layer3" parent_id_path=PackedInt32Array(2028132504) index="2" unique_id=431321112 instance=ExtResource("2_jy0rc")]
+position = Vector2(328, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp" parent="Background/Layer4" parent_id_path=PackedInt32Array(797417467) index="0" unique_id=573569448 instance=ExtResource("2_jy0rc")]
+position = Vector2(40, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp2" parent="Background/Layer4" parent_id_path=PackedInt32Array(797417467) index="1" unique_id=53631641 instance=ExtResource("2_jy0rc")]
+position = Vector2(144, 192)
+tall = 10
+max_tall = 15
+
+[node name="Kelp3" parent="Background/Layer4" parent_id_path=PackedInt32Array(797417467) index="2" unique_id=25087368 instance=ExtResource("2_jy0rc")]
+position = Vector2(248, 192)
+tall = 10
+max_tall = 15
+
+[node name="BackTiles" parent="." index="1" unique_id=1355478542]
+tile_map_data = PackedByteArray("AAAeAAkAAAAAAAAAAAAeAAoAAAAAAAIAAAAfAAgAAAAAAAAAAAAfAAkAAAABAAcAAAAfAAoAAAABAAIAAAAgAAgAAAABAAAAAAAgAAkAAAABAAEAAAAgAAoAAAABAAIAAAAhAAkAAAACAAEAAAAhAAoAAAACAAIAAAAlAAAAAAAAAAAAAAAlAAEAAAAAAAIAAAAmAAAAAAABAAAAAAAmAAEAAAABAAYAAAAmAAIAAAAAAAIAAAAnAAAAAAABAAAAAAAnAAEAAAABAAEAAAAnAAoAAAABAAIAAAAoAAgAAAABAAcAAAAoAAkAAAABAAEAAAAoAAoAAAABAAIAAAApAAgAAAAAAAcAAAApAAkAAAABAAEAAAApAAoAAAABAAIAAAAVAAcAAAAAAAAAAAAVAAgAAAABAAcAAAAVAAkAAAABAAEAAAAVAAoAAAABAAIAAAAWAAcAAAABAAAAAAAWAAgAAAABAAEAAAAWAAkAAAABAAEAAAAWAAoAAAABAAIAAAAXAAcAAAACAAAAAAAXAAgAAAAAAAcAAAAXAAkAAAABAAEAAAAXAAoAAAABAAIAAAAYAAgAAAACAAAAAAAYAAkAAAAAAAcAAAAYAAoAAAABAAIAAAAZAAAAAAAAAAAAAAAZAAEAAAAAAAIAAAAZAAkAAAABAAAAAAAZAAoAAAABAAIAAAAaAAAAAAADAAcAAAAaAAEAAAABAAYAAAAaAAIAAAAAAAIAAAAaAAkAAAACAAAAAAAaAAoAAAACAAIAAAAbAAAAAAADAAcAAAAbAAEAAAABAAEAAAAbAAIAAAABAAIAAAAcAAAAAAABAAAAAAAcAAEAAAABAAEAAAAcAAIAAAABAAIAAAAdAAAAAAADAAcAAAAdAAEAAAABAAEAAAAdAAIAAAABAAIAAAAeAAAAAAABAAAAAAAeAAEAAAAAAAYAAAAeAAIAAAACAAIAAAAfAAAAAAACAAAAAAAfAAEAAAACAAIAAAAhAAgAAAACAAAAAAAnAAIAAAADAAYAAAAoAAAAAAACAAAAAAAoAAEAAAACAAEAAAAoAAIAAAACAAIAAAAoAAcAAAAAAAAAAAApAAcAAAACAAAAAAAqAAgAAAACAAAAAAAqAAkAAAAAAAcAAAAqAAoAAAABAAIAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAkAAAAGAAcAAAABAAkAAAABAAIAAAABAAgAAAAAAAcAAAABAAcAAAACAAAAAAACAAgAAAACAAAAAAACAAkAAAACAAIAAAADAAkAAAABAAQAAAAMAAAAAAAAAAAAAAAMAAEAAAABAAcAAAAMAAIAAAABAAIAAAAMAAMAAAABAAQAAAANAAIAAAADAAYAAAANAAEAAAAAAAcAAAANAAAAAAACAAAAAAANAAMAAAACAAIAAAAUAAAAAAAAAAAAAAAUAAEAAAABAAYAAAAUAAIAAAAAAAEAAAAUAAMAAAAAAAIAAAAVAAMAAAACAAIAAAAVAAIAAAACAAEAAAAVAAEAAAAAAAYAAAAVAAAAAAABAAAAAAAGAAcAAAAAAAAAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAAJAAcAAAAHAAYAAAAJAAgAAAAAAAcAAAAJAAkAAAABAAEAAAAJAAoAAAABAAIAAAAIAAoAAAABAAIAAAAHAAoAAAABAAIAAAAGAAoAAAABAAIAAAAGAAkAAAABAAEAAAAGAAgAAAABAAcAAAAIAAgAAAABAAEAAAAIAAkAAAABAAEAAAAHAAkAAAABAAEAAAAHAAgAAAABAAEAAAAnAAgAAAAAAAAAAAAnAAkAAAABAAcAAAALAAEAAAABAAAAAAAKAAEAAAABAAAAAAAKAAIAAAABAAEAAAALAAIAAAAAAAYAAAAKAAMAAAAAAAYAAAALAAMAAAABAAIAAAAKAAQAAAACAAIAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAEAAAAJAAQAAAAAAAIAAAAOAAEAAAAHAAYAAAAOAAIAAAACAAIAAAAPAAEAAAACAAQAAAAWAAEAAAACAAIAAAATAAEAAAAAAAIAAAATAAAAAAAEAAAAAAAWAAAAAAACAAAAAAAKAAkAAAAAAAcAAAAKAAgAAAACAAAAAAAFAAkAAAABAAcAAAAFAAgAAAAAAAAAAAAEAAkAAAAEAAcAAAALAAkAAAACAAAAAAAmAAkAAAAAAAAAAAArAAkAAAACAAAAAAAmAAoAAAAAAAIAAAArAAoAAAACAAIAAAALAAoAAAACAAIAAAAKAAoAAAABAAIAAAAFAAoAAAABAAIAAAAEAAoAAAAAAAIAAAATAAgAAAAAAAAAAAATAAkAAAABAAcAAAASAAkAAAABAAAAAAARAAkAAAAAAAAAAAAUAAkAAAABAAEAAAAUAAgAAAABAAAAAAARAAoAAAAAAAIAAAASAAoAAAABAAIAAAATAAoAAAABAAIAAAAUAAoAAAABAAIAAAA5AAkAAAABAAcAAAA4AAkAAAAHAAcAAAA4AAoAAAAAAAIAAAA5AAoAAAABAAIAAAA6AAoAAAACAAIAAAA6AAkAAAACAAEAAAA6AAgAAAACAAAAAAA5AAgAAAAAAAAAAAA0AAIAAAADAAcAAAA0AAMAAAABAAIAAAAzAAMAAAAGAAcAAAAyAAMAAAAAAAAAAAAzAAQAAAACAAIAAAAyAAQAAAAAAAIAAAAzAAIAAAAAAAAAAAA1AAIAAAACAAAAAAA1AAMAAAACAAIAAAABAAIAAAAGAAcAAAACAAIAAAACAAIAAAABAAAAAAAEAAcAAAABAAEAAAAAAAEAAAACAAAAAAABAAAAAAACAAEAAAAAAAYAAAADAAAAAAAHAAYAAAADAAEAAAACAAIAAAA=")
+
+[node name="FrontTiles" parent="." index="2" unique_id=481530268]
+tile_map_data = PackedByteArray("AAAcAP//AAABAAAAAAAcAAAAAAABAAIAAAAcAAoAAAADAAcAAAAcAAsAAAABAAIAAAAdAP//AAABAAAAAAAdAAAAAAADAAYAAAAdAAEAAAAEAAEAAAAdAAIAAAAEAAEAAAAdAAMAAAAEAAEAAAAdAAQAAAAEAAEAAAAdAAUAAAAEAAEAAAAdAAYAAAAEAAEAAAAdAAcAAAAEAAIAAAAdAAoAAAABAAAAAAAdAAsAAAABAAIAAAAeAP//AAABAAAAAAAeAAAAAAABAAIAAAAeAAoAAAABAAAAAAAeAAsAAAABAAIAAAAfAP//AAADAAcAAAAfAAAAAAABAAIAAAAfAAoAAAABAAAAAAAfAAsAAAABAAIAAAAgAP//AAABAAAAAAAgAAAAAAABAAIAAAAgAAoAAAABAAAAAAAgAAsAAAABAAIAAAAhAP//AAABAAAAAAAhAAAAAAABAAIAAAAhAAoAAAABAAcAAAAhAAsAAAABAAIAAAAiAP//AAABAAAAAAAiAAAAAAABAAIAAAAiAAoAAAABAAEAAAAiAAsAAAABAAIAAAAjAP//AAABAAAAAAAjAAAAAAABAAIAAAAjAAoAAAABAAEAAAAjAAsAAAABAAIAAAAkAP//AAABAAAAAAAkAAAAAAABAAIAAAAkAAoAAAAAAAcAAAAkAAsAAAABAAIAAAAlAP//AAABAAAAAAAlAAAAAAABAAIAAAAlAAMAAQAAAAAAAVAlAAQAAQAAAAAAAVAlAAUAAQAAAAAAAVAlAAYAAQAAAAAAAVAlAAcAAQAAAAAAAVAlAAoAAAABAAAAAAAlAAsAAAADAAYAAAAmAP//AAABAAAAAAAmAAAAAAABAAIAAAAmAAoAAAABAAAAAAAmAAsAAAABAAIAAAAnAP//AAABAAAAAAAnAAAAAAABAAIAAAAnAAoAAAABAAAAAAAnAAsAAAABAAIAAAAoAP//AAADAAcAAAAoAAAAAAABAAYAAAAoAAMAAAAAAAEAAAAoAAQAAAAAAAEAAAAoAAUAAAAAAAEAAAAoAAYAAAAAAAEAAAAoAAcAAAAAAAIAAAAoAAoAAAADAAcAAAAoAAsAAAABAAIAAAApAP//AAABAAAAAAApAAAAAAABAAEAAAApAAIAAAAAAAYAAAApAAMAAAACAAEAAAApAAQAAAACAAEAAAApAAUAAAACAAEAAAApAAYAAAACAAEAAAApAAcAAAACAAIAAAApAAoAAAABAAAAAAApAAsAAAABAAIAAAAqAP//AAABAAAAAAAqAAAAAAABAAEAAAAqAAIAAAABAAIAAAAqAAMAAQAAAAAAAVAqAAQAAQAAAAAAAVAqAAUAAQAAAAAAAVAqAAYAAQAAAAAAAVAqAAcAAQAAAAAAAVAqAAoAAAABAAAAAAAqAAsAAAABAAIAAAArAP//AAADAAcAAAArAAAAAAABAAEAAAArAAIAAAABAAIAAAArAAoAAAABAAAAAAArAAsAAAABAAIAAAAsAP//AAABAAAAAAAsAAAAAAABAAEAAAAsAAIAAAABAAIAAAAsAAMAAQAAAAAAAWAsAAcAAQAAAAAAAWAsAAgAAQAAAAAAAWAsAAkAAQAAAAAAAWAsAAoAAAABAAAAAAAsAAsAAAABAAIAAAAtAP//AAABAAAAAAAtAAAAAAABAAEAAAAtAAMAAAAAAAIAAAAtAAQAAQAAAAAAATAtAAYAAQAAAAAAAQAtAAcAAAAAAAAAAAAtAAgAAAAAAAEAAAAtAAkAAAAAAAEAAAAtAAoAAAABAAcAAAAtAAsAAAABAAIAAAAuAP//AAADAAcAAAAuAAAAAAABAAEAAAAuAAoAAAABAAEAAAAuAAsAAAABAAIAAAAvAP//AAABAAAAAAAvAAAAAAABAAEAAAAvAAEAAAABAAEAAAAvAAIAAAABAAEAAAAvAAMAAAABAAIAAAAvAAQAAQAAAAAAATAvAAYAAQAAAAAAAQAvAAcAAAABAAAAAAAvAAoAAAABAAEAAAAvAAsAAAABAAIAAAAwAP//AAABAAAAAAAwAAAAAAABAAEAAAAwAAEAAAABAAEAAAAwAAIAAAABAAEAAAAwAAMAAAADAAYAAAAwAAQAAQAAAAAAATAwAAYAAQAAAAAAAQAwAAcAAAADAAcAAAAwAAoAAAABAAEAAAAwAAsAAAABAAIAAAAxAP//AAABAAAAAAAxAAAAAAABAAEAAAAxAAEAAAABAAEAAAAxAAIAAAABAAEAAAAxAAMAAAABAAIAAAAxAAQAAQAAAAAAATAxAAYAAQAAAAAAAQAxAAcAAAABAAAAAAAxAAoAAAABAAEAAAAxAAsAAAABAAIAAAAyAP//AAABAAAAAAAyAAAAAAABAAEAAAAyAAEAAAABAAEAAAAyAAIAAAABAAEAAAAyAAMAAAABAAIAAAAyAAQAAQAAAAAAATAyAAYAAQAAAAAAAQAyAAcAAAADAAcAAAAyAAoAAAABAAEAAAAyAAsAAAABAAIAAAAzAP//AAABAAAAAAAzAAAAAAABAAEAAAAzAAEAAAABAAEAAAAzAAIAAAAAAAYAAAAzAAoAAAAAAAcAAAAzAAsAAAABAAIAAAA0AP//AAABAAAAAAA0AAAAAAABAAEAAAA0AAEAAAABAAEAAAA0AAIAAAABAAIAAAA0AAMAAQAAAAAAAVA0AAcAAQAAAAAAAVA0AAgAAQAAAAAAAVA0AAkAAQAAAAAAAVA0AAoAAAABAAAAAAA0AAsAAAABAAIAAAA1AP//AAABAAAAAAA1AAAAAAABAAEAAAA1AAEAAAABAAEAAAA1AAsAAAABAAIAAAA2AP//AAABAAAAAAA2AAAAAAABAAEAAAA2AAEAAAABAAEAAAA2AAsAAAABAAIAAAA3AP//AAABAAAAAAA3AAAAAAABAAEAAAA3AAEAAAABAAEAAAA3AAsAAAABAAIAAAA4AP//AAABAAAAAAA4AAAAAAABAAEAAAA4AAEAAAABAAEAAAA4AAoAAAABAAAAAAA4AAsAAAABAAIAAAA5AP//AAABAAAAAAA5AAAAAAABAAEAAAA5AAEAAAABAAEAAAA5AAIAAAABAAIAAAA5AAoAAAABAAAAAAA5AAsAAAABAAIAAAA6AP//AAADAAcAAAA6AAAAAAABAAEAAAA6AAEAAAABAAEAAAA6AAIAAAABAAYAAAA6AAMAAAAAAAEAAAA6AAQAAAAAAAEAAAA6AAYAAAAAAAEAAAA6AAcAAAAAAAEAAAA6AAgAAAAAAAEAAAA6AAkAAAAAAAEAAAA6AAoAAAABAAcAAAA6AAsAAAABAAIAAAA7AP//AAABAAAAAAA7AAAAAAABAAEAAAA7AAEAAAABAAEAAAA7AAIAAAABAAEAAAA7AAMAAAABAAEAAAA7AAQAAAABAAEAAAA7AAYAAAABAAEAAAA7AAcAAAABAAEAAAA7AAgAAAABAAEAAAA7AAkAAAABAAEAAAA7AAoAAAABAAEAAAA7AAsAAAABAAIAAAA8AP//AAAHAAYAAAA8AAAAAAACAAEAAAA8AAEAAAACAAEAAAA8AAIAAAACAAEAAAA8AAMAAAACAAEAAAA8AAcAAAACAAEAAAA8AAgAAAACAAEAAAA8AAkAAAAEAAYAAAA8AAoAAAACAAEAAAA8AAsAAAACAAIAAAAUAP//AAADAAcAAAAUAAAAAAABAAIAAAAUAAMAAAAAAAAAAAAUAAQAAAAAAAEAAAAUAAUAAAAAAAEAAAAUAAYAAAAAAAEAAAAUAAcAAAAAAAEAAAAUAAoAAAABAAcAAAAUAAsAAAABAAIAAAAVAP//AAADAAcAAAAVAAAAAAABAAIAAAAVAAMAAAACAAAAAAAVAAQAAAACAAEAAAAVAAUAAAACAAEAAAAVAAYAAAACAAEAAAAVAAcAAAACAAEAAAAVAAoAAAAAAAcAAAAVAAsAAAABAAIAAAAWAP//AAABAAAAAAAWAAAAAAABAAIAAAAWAAoAAAABAAAAAAAWAAsAAAABAAIAAAAXAP//AAABAAAAAAAXAAAAAAABAAIAAAAXAAoAAAABAAAAAAAXAAsAAAABAAIAAAAYAP//AAABAAAAAAAYAAAAAAABAAIAAAAYAAoAAAABAAAAAAAYAAsAAAABAAIAAAAZAP//AAABAAAAAAAZAAAAAAABAAIAAAAZAAoAAAABAAAAAAAZAAsAAAABAAIAAAAaAP//AAABAAAAAAAaAAAAAAABAAIAAAAaAAoAAAABAAAAAAAaAAsAAAABAAIAAAAbAP//AAABAAAAAAAbAAAAAAABAAIAAAAbAAoAAAADAAcAAAAbAAsAAAABAAIAAAAeAAEAAQAAAAAAAVAeAAIAAQAAAAAAAVAeAAMAAQAAAAAAAVAeAAQAAQAAAAAAAVAeAAUAAQAAAAAAAVAeAAYAAQAAAAAAAVAeAAcAAQAAAAAAAVAgAAMAAQAAAAAAAWAgAAQAAQAAAAAAAWAgAAUAAQAAAAAAAWAgAAYAAQAAAAAAAWAgAAcAAQAAAAAAAWAgAAgAAQAAAAAAAWAgAAkAAQAAAAAAAWAhAAIAAQAAAAAAAQAhAAMAAAAAAAAAAAAhAAQAAAAAAAEAAAAhAAUAAAAAAAEAAAAhAAYAAAAAAAEAAAAhAAcAAAAAAAEAAAAhAAgAAAAAAAEAAAAhAAkAAAAAAAEAAAAiAAIAAQAAAAAAAQAiAAMAAAABAAAAAAAiAAQAAAABAAEAAAAiAAUAAAABAAEAAAAiAAYAAAABAAEAAAAiAAcAAAABAAEAAAAiAAgAAAABAAEAAAAiAAkAAAABAAEAAAAjAAIAAQAAAAAAAQAjAAMAAAABAAAAAAAjAAQAAAABAAEAAAAjAAUAAAABAAEAAAAjAAYAAAABAAEAAAAjAAcAAAABAAEAAAAjAAgAAAABAAEAAAAjAAkAAAABAAEAAAAkAAIAAQAAAAAAAQAkAAMAAAACAAAAAAAkAAQAAAACAAEAAAAkAAUAAAACAAEAAAAkAAYAAAACAAEAAAAkAAcAAAACAAEAAAAkAAgAAAACAAEAAAAkAAkAAAAEAAYAAAAlAAgAAQAAAAAAAVAlAAkAAQAAAAAAAVAnAAEAAQAAAAAAAWAnAAIAAQAAAAAAAWAnAAMAAQAAAAAAAWAnAAQAAQAAAAAAAWAnAAUAAQAAAAAAAWAnAAYAAQAAAAAAAWAnAAcAAQAAAAAAAWAoAAEAAAAAAAEAAAAoAAIAAAAAAAEAAAApAAEAAAABAAEAAAAqAAEAAAABAAEAAAArAAEAAAABAAEAAAAsAAEAAAABAAEAAAAtAAEAAAABAAEAAAAtAAIAAAABAAYAAAAuAAEAAAABAAEAAAAuAAIAAAABAAEAAAAuAAMAAAABAAIAAAAuAAQAAQAAAAAAATAuAAYAAQAAAAAAAQAuAAcAAAABAAAAAAAuAAgAAAABAAEAAAAuAAkAAAABAAEAAAAvAAgAAAABAAEAAAAvAAkAAAABAAEAAAAwAAgAAAABAAEAAAAwAAkAAAABAAEAAAAxAAgAAAABAAEAAAAxAAkAAAABAAEAAAAyAAgAAAABAAEAAAAyAAkAAAABAAEAAAAzAAMAAAACAAIAAAAzAAQAAQAAAAAAATAzAAYAAQAAAAAAAQAzAAcAAAACAAAAAAAzAAgAAAACAAEAAAAzAAkAAAACAAEAAAA6AAUAAAAAAAEAAAA7AAUAAAABAAEAAAA8AAQAAAACAAEAAAA8AAUAAAACAAEAAAA8AAYAAAACAAEAAAAUAAgAAAAAAAEAAAAVAAgAAAACAAEAAAAVAAkAAAACAAEAAAAUAAkAAAAAAAEAAAD/////AAAAAAAAAAD//wAAAAAAAAEAAAD//wEAAAAGAAcAAAD//wIAAAAAAAEAAAD//wMAAAAAAAEAAAD//wQAAAAAAAEAAAD//wUAAAAAAAEAAAD//wYAAAAAAAEAAAD//wcAAAAAAAEAAAD//wgAAAAAAAEAAAD//wkAAAAAAAEAAAD//woAAAAAAAEAAAD//wsAAAAGAAcAAAAAAAsAAAABAAIAAAABAAsAAAABAAIAAAACAAsAAAABAAIAAAADAAsAAAABAAIAAAAEAAsAAAABAAIAAAAFAAsAAAABAAIAAAAGAAsAAAABAAIAAAAHAAsAAAABAAIAAAAIAAsAAAABAAIAAAAJAAsAAAABAAIAAAAKAAsAAAABAAIAAAALAAsAAAABAAIAAAAMAAsAAAABAAIAAAANAAsAAAABAAIAAAAOAAsAAAABAAIAAAAPAAsAAAABAAIAAAAQAAsAAAABAAIAAAARAAsAAAABAAIAAAASAAsAAAABAAIAAAATAAsAAAADAAYAAAATAAoAAAABAAAAAAASAAoAAAABAAAAAAARAAoAAAABAAAAAAAQAAoAAAABAAAAAAAPAAoAAAABAAAAAAAOAAoAAAABAAAAAAANAAoAAAAAAAcAAAAMAAoAAAABAAcAAAALAAoAAAABAAAAAAAKAAoAAAABAAAAAAAJAAoAAAABAAAAAAAIAAoAAAABAAAAAAAHAAoAAAABAAAAAAAGAAoAAAABAAAAAAAFAAoAAAABAAAAAAAEAAoAAAABAAAAAAADAAoAAAABAAAAAAACAAoAAAABAAAAAAABAAoAAAABAAAAAAAAAAoAAAAAAAcAAAAAAAkAAAACAAEAAAAAAAgAAAACAAEAAAAAAAcAAAACAAEAAAAAAAYAAAACAAEAAAAAAAUAAAACAAEAAAAAAAQAAAACAAEAAAAAAAMAAAACAAEAAAAAAAIAAAACAAEAAAAAAAEAAAAAAAYAAAAAAP//AAADAAcAAAAAAAAAAAABAAEAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAMAP//AAABAAAAAAANAP//AAABAAAAAAAOAP//AAABAAAAAAAPAP//AAABAAAAAAAQAP//AAABAAAAAAARAP//AAABAAAAAAASAP//AAABAAAAAAATAP//AAABAAAAAAABAAAAAAAAAAYAAAACAAAAAAABAAIAAAADAAAAAAABAAIAAAAEAAAAAAABAAIAAAAFAAAAAAABAAYAAAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAAAAAAAAAAYAAAAKAAAAAAABAAIAAAALAAAAAAABAAIAAAAMAAAAAAABAAIAAAANAAAAAAABAAIAAAAOAAAAAAABAAIAAAAPAAAAAAABAAIAAAAQAAAAAAABAAYAAAARAAAAAAAAAAYAAAASAAAAAAABAAIAAAATAAAAAAABAAIAAAAGAAYAAAAAAAEAAAAGAAUAAAAAAAEAAAAGAAQAAAAAAAEAAAAGAAMAAAAAAAEAAAAGAAIAAAAAAAEAAAAGAAEAAAABAAYAAAAHAAEAAAABAAEAAAAHAAIAAAABAAEAAAAHAAMAAAABAAEAAAAHAAQAAAABAAEAAAAHAAUAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAABAAEAAAAIAAUAAAABAAEAAAAIAAQAAAABAAEAAAAIAAMAAAABAAEAAAAIAAIAAAABAAEAAAAIAAEAAAABAAEAAAAIAAcAAAABAAIAAAAHAAcAAAABAAIAAAAGAAcAAAAAAAIAAAAJAAYAAAACAAEAAAAJAAUAAAACAAEAAAAJAAQAAAACAAEAAAAJAAMAAAACAAEAAAAJAAIAAAACAAEAAAAJAAEAAAACAAEAAAAJAAcAAAACAAIAAAAMAAkAAAAAAAEAAAAMAAgAAAAAAAEAAAAMAAcAAAAAAAEAAAAMAAYAAAAAAAEAAAAMAAUAAAAAAAEAAAAMAAQAAAAAAAEAAAAMAAMAAAAAAAAAAAANAAMAAAACAAAAAAANAAQAAAACAAEAAAANAAUAAAACAAEAAAANAAYAAAACAAEAAAANAAcAAAACAAEAAAANAAgAAAACAAEAAAANAAkAAAACAAEAAAAQAAEAAAAAAAEAAAAQAAIAAAAAAAEAAAAQAAMAAAAAAAEAAAAQAAQAAAAAAAEAAAAQAAUAAAAAAAEAAAAQAAYAAAAAAAEAAAAQAAcAAAAAAAIAAAARAAcAAAACAAIAAAARAAYAAAACAAEAAAARAAUAAAACAAEAAAARAAQAAAACAAEAAAARAAMAAAACAAEAAAARAAIAAAACAAEAAAARAAEAAAACAAEAAAABAAEAAAACAAIAAAAFAAEAAAAAAAIAAAA1AAoAAAABAAAAAAA2AAoAAAADAAcAAAA3AAoAAAABAAAAAAA1AAIAAAABAAIAAAA2AAIAAAABAAIAAAA3AAIAAAABAAIAAAA4AAIAAAABAAIAAAA=")
+
+[node name="Player" parent="." index="3" unique_id=1245037256]
+position = Vector2(41, 131)
+
+[node name="Camera2D" parent="Player" index="4" unique_id=1860651927]
+position = Vector2(-19.798992, 4.2426405)
+limit_right = 960
+
+[node name="WinCylinder" parent="." index="4" unique_id=2074845977]
+position = Vector2(928, 88)
+
+[node name="DivingCylinder" parent="OxygenCylinders" parent_id_path=PackedInt32Array(999999168) index="0" unique_id=474715255 instance=ExtResource("3_b053e")]
+position = Vector2(208, 32)
+
+[node name="DivingCylinder2" parent="OxygenCylinders" parent_id_path=PackedInt32Array(999999168) index="1" unique_id=1625797382 instance=ExtResource("3_b053e")]
+position = Vector2(336, 32)
+
+[node name="DivingCylinder3" parent="OxygenCylinders" parent_id_path=PackedInt32Array(999999168) index="2" unique_id=835972267 instance=ExtResource("3_b053e")]
+position = Vector2(656, 144)
+
+[connection signal="body_entered" from="FrontTiles/@Area2D@592921" to="FrontTiles/@Area2D@592921" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592922" to="FrontTiles/@Area2D@592922" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592923" to="FrontTiles/@Area2D@592923" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592924" to="FrontTiles/@Area2D@592924" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592925" to="FrontTiles/@Area2D@592925" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592926" to="FrontTiles/@Area2D@592926" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592927" to="FrontTiles/@Area2D@592927" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592928" to="FrontTiles/@Area2D@592928" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592929" to="FrontTiles/@Area2D@592929" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592930" to="FrontTiles/@Area2D@592930" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592931" to="FrontTiles/@Area2D@592931" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592932" to="FrontTiles/@Area2D@592932" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592933" to="FrontTiles/@Area2D@592933" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592934" to="FrontTiles/@Area2D@592934" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592935" to="FrontTiles/@Area2D@592935" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592936" to="FrontTiles/@Area2D@592936" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592937" to="FrontTiles/@Area2D@592937" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592938" to="FrontTiles/@Area2D@592938" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592939" to="FrontTiles/@Area2D@592939" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592940" to="FrontTiles/@Area2D@592940" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592941" to="FrontTiles/@Area2D@592941" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592942" to="FrontTiles/@Area2D@592942" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592943" to="FrontTiles/@Area2D@592943" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592944" to="FrontTiles/@Area2D@592944" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592945" to="FrontTiles/@Area2D@592945" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592946" to="FrontTiles/@Area2D@592946" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592947" to="FrontTiles/@Area2D@592947" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592948" to="FrontTiles/@Area2D@592948" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592949" to="FrontTiles/@Area2D@592949" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592950" to="FrontTiles/@Area2D@592950" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592951" to="FrontTiles/@Area2D@592951" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592952" to="FrontTiles/@Area2D@592952" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592953" to="FrontTiles/@Area2D@592953" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592954" to="FrontTiles/@Area2D@592954" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592955" to="FrontTiles/@Area2D@592955" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592956" to="FrontTiles/@Area2D@592956" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592957" to="FrontTiles/@Area2D@592957" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592958" to="FrontTiles/@Area2D@592958" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592959" to="FrontTiles/@Area2D@592959" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592960" to="FrontTiles/@Area2D@592960" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592961" to="FrontTiles/@Area2D@592961" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592962" to="FrontTiles/@Area2D@592962" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592963" to="FrontTiles/@Area2D@592963" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592964" to="FrontTiles/@Area2D@592964" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592965" to="FrontTiles/@Area2D@592965" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592966" to="FrontTiles/@Area2D@592966" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592967" to="FrontTiles/@Area2D@592967" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592968" to="FrontTiles/@Area2D@592968" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592969" to="FrontTiles/@Area2D@592969" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592970" to="FrontTiles/@Area2D@592970" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592971" to="FrontTiles/@Area2D@592971" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592972" to="FrontTiles/@Area2D@592972" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592973" to="FrontTiles/@Area2D@592973" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592974" to="FrontTiles/@Area2D@592974" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592975" to="FrontTiles/@Area2D@592975" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592976" to="FrontTiles/@Area2D@592976" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592977" to="FrontTiles/@Area2D@592977" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592978" to="FrontTiles/@Area2D@592978" method="_on_body_entered"]
+[connection signal="body_entered" from="FrontTiles/@Area2D@592979" to="FrontTiles/@Area2D@592979" method="_on_body_entered"]
