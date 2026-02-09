@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://ciibyufiwy8vc" path="res://src/map/spikes/spikes.gd" id="1_im0m8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hxod"]
-size = Vector2(14, 4)
+size = Vector2(14, 3)
 
 [node name="Spikes" type="Area2D" unique_id=1702733757]
 script = ExtResource("1_im0m8")
@@ -13,7 +13,7 @@ script = ExtResource("1_im0m8")
 texture = ExtResource("1_0hxod")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2007430715]
-position = Vector2(0, 6)
+position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_0hxod")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

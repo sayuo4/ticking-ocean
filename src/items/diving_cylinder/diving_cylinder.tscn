@@ -9,9 +9,8 @@ shader = ExtResource("2_jtb0x")
 shader_parameter/fade = 0.0
 shader_parameter/tiling = 10.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nsui1"]
-radius = 3.0
-height = 14.142138
+[sub_resource type="CircleShape2D" id="CircleShape2D_jtb0x"]
+radius = 11.313709
 
 [sub_resource type="Gradient" id="Gradient_jtb0x"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -64,7 +63,7 @@ _data = {
 
 [node name="DivingCylinder" type="Area2D" unique_id=1625797382]
 script = ExtResource("1_t6302")
-oxygen_increase_amount = 35.0
+oxygen_increase_amount = 50.0
 oxygen_pause_time = 0.2
 fade_time = 0.3
 
@@ -75,7 +74,7 @@ texture = ExtResource("2_nsui1")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=610934436]
 position = Vector2(0, 1)
 rotation = 0.7853982
-shape = SubResource("CapsuleShape2D_nsui1")
+shape = SubResource("CircleShape2D_jtb0x")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1061225613]
 energy = 0.6

@@ -45,8 +45,8 @@ offset_right = 874.0
 offset_bottom = 69.0
 theme_override_styles/background = SubResource("StyleBoxFlat_lrymk")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jyjjr")
-max_value = 120.0
-value = 120.0
+max_value = 200.0
+value = 200.0
 show_percentage = false
 
 [node name="ReduceTimer" type="Timer" parent="OxygenBar" unique_id=260366651]

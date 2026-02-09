@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dxf1f4xvy06hm" path="res://src/map/saw_blade/saw_blade.gd" id="1_sts2r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sts2r"]
-radius = 17.0
+radius = 16.0
 
 [node name="SawBlade" type="Area2D" unique_id=676301008]
 script = ExtResource("1_sts2r")
