@@ -1,8 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-signal player_bounced(dir: Vector2)
-
 const SWIM_ANIM: StringName = &"swim"
 const IDLE_ANIM: StringName = &"idle"
 
@@ -53,8 +51,6 @@ func _ready() -> void:
 	await get_tree().create_timer(start_oxygen_time).timeout
 	Global.start_oxygen_timer(_on_oxygen_finished)
 
-
-
 func get_input_dir() -> float:
 	return Input.get_axis("left", "right")
 
@@ -94,12 +90,10 @@ func apply_animations() -> void:
 	else:
 		%Anim.play(SWIM_ANIM, 0.1)
 
-
 func wait_for_swim_anim() -> void:
 	var animation_end: float = %Anim.current_animation_length - 0.2
 	if %Anim.current_animation_position > animation_end:
 		%Anim.play(IDLE_ANIM)
-
 
 func try_boost() -> void:
 	if Input.is_action_just_pressed("boost") and boost_timer.is_stopped():
@@ -115,30 +109,26 @@ func try_dash() -> void:
 	if Input.is_action_just_pressed("dash") and dash_timer.is_stopped():
 		state_machine.activate_state_by_name.call_deferred("DashState")
 
-func try_bounce(delta: float) -> void:
-	var speed: Vector2 = get_position_delta() / delta
-	
-	if not speed or not get_slide_collision_count():
+func try_bounce() -> void:
+	if not get_slide_collision_count():
 		return
 	
-	var dir: Vector2 = speed.sign()
-	var collision_position: Vector2 = get_last_slide_collision().get_position()
-	var collision_dir: Vector2 = Vector2.ZERO
+	var collision: KinematicCollision2D = get_last_slide_collision()
+	var collision_point: Vector2 = collision.get_position()
 	
-	if is_on_floor() or is_on_ceiling():
-		velocity.y = -dir.y * bounce_of_wall_force.y
-		collision_dir = Vector2.DOWN * dir.y
-		
-		if SandBounceParticles.get_particles_amount(self) < max_sand_particles_amount:
-			SandBounceParticles.from_scene(collision_position, -dir)
-		
-	elif is_on_wall():
-		velocity.x = -dir.x * bounce_of_wall_force.x
-		collision_dir = Vector2.RIGHT * dir.x
-		if SandBounceParticles.get_particles_amount(self) < max_sand_particles_amount:
-			SandBounceParticles.from_scene(collision_position, -dir)
+	var bounce_dir: Vector2 = Vector2(
+			signf(get_wall_normal().x) if is_on_wall() else 0.0,
+			-1.0 if is_on_floor() else 1.0 if is_on_ceiling() else 0.0
+	)
 	
-	player_bounced.emit(collision_dir)
+	if bounce_dir.y:
+		velocity.y = bounce_dir.y * bounce_of_wall_force.y
+	elif bounce_dir.x:
+		velocity.x = bounce_dir.x * bounce_of_wall_force.x
+	
+	if SandBounceParticles.get_particles_amount(self) < max_sand_particles_amount:
+		SandBounceParticles.from_scene(collision_point, bounce_dir)
+	
 	bounce_timer.start()
 
 func round_values() -> void:
