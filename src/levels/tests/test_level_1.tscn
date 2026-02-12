@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxcfeyhmrpdc1" path="res://src/levels/game_level.gd" id="1_bvmjd"]
 [ext_resource type="PackedScene" uid="uid://drihxlqlbhohq" path="res://src/player/player.tscn" id="1_cxdpd"]
-[ext_resource type="PackedScene" uid="uid://dkgdmncksd8lq" path="res://src/map/sand_tilemap.tscn" id="3_bvmjd"]
+[ext_resource type="PackedScene" uid="uid://dkgdmncksd8lq" path="res://src/map/sand_tilemap/sand_tilemap.tscn" id="3_bvmjd"]
 [ext_resource type="PackedScene" uid="uid://bxrnqpbi7yote" path="res://src/items/diving_cylinder/diving_cylinder.tscn" id="4_m0e13"]
 [ext_resource type="PackedScene" uid="uid://btcwfmryqcrp0" path="res://src/map/win_cylinder/win_cylinder.tscn" id="5_ya63w"]
 [ext_resource type="PackedScene" uid="uid://dnjywo7jdr5p2" path="res://src/levels/tests/test_level_2.tscn" id="6_f3xv5"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b0kebrutcrd3b"]
 
 [ext_resource type="Script" uid="uid://dxcfeyhmrpdc1" path="res://src/levels/game_level.gd" id="1_nm6nc"]
-[ext_resource type="PackedScene" uid="uid://dkgdmncksd8lq" path="res://src/map/sand_tilemap.tscn" id="2_tphog"]
+[ext_resource type="PackedScene" uid="uid://dkgdmncksd8lq" path="res://src/map/sand_tilemap/sand_tilemap.tscn" id="2_tphog"]
 [ext_resource type="PackedScene" uid="uid://drihxlqlbhohq" path="res://src/player/player.tscn" id="4_51tk5"]
 [ext_resource type="PackedScene" uid="uid://btcwfmryqcrp0" path="res://src/map/win_cylinder/win_cylinder.tscn" id="4_88vja"]
 [ext_resource type="Script" uid="uid://crsf41gcr5cml" path="res://src/player/camera/player_camera.gd" id="4_nm6nc"]
@@ -47,7 +47,6 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_right_margin = 0.0
 script = ExtResource("4_nm6nc")
-shake_fade = 10.0
 
 [node name="WinCylinder" parent="." unique_id=2074845977 instance=ExtResource("4_88vja")]
 
