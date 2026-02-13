@@ -112,7 +112,7 @@ func arrived_at_point(point: Vector2, arriving_distance: float = patrol_arriving
 
 ## returns the player position.
 func get_player_position() -> Vector2:
-	var player: Player = Global.get_player()
+	var player: Player = Global.Game.get_player()
 	
 	if not player:
 		return Vector2.ZERO

@@ -16,7 +16,7 @@ func _on_detect_player_area_body_entered(body: Node2D) -> void:
 		player.hide()
 		player.process_mode = Node.PROCESS_MODE_DISABLED
 		
-		var hud: HUD = Global.get_hud()
+		var hud: HUD = Global.UI.get_hud()
 		
 		if hud:
 			hud.oxygen_reduce_timer.stop()
@@ -26,10 +26,10 @@ func _on_detect_player_area_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(time_after_enter, false).timeout
 		
 		if not switch_to_scene:
-			Global.reload_current_level()
+			Global.Levels.reload_current()
 			return
 		
 		if is_level:
-			Global.switch_level_to_packed(switch_to_scene, true, false)
+			Global.Levels.switch_to_packed(switch_to_scene)
 		else:
-			Global.switch_scene_to_packed(switch_to_scene, true, true)
+			Global.Scenes.switch_to_packed(switch_to_scene)

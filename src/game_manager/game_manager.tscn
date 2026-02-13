@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://dmvpaxhbl5g40"]
 
-[ext_resource type="Script" uid="uid://ds1xpikx6jwea" path="res://src/main/main.gd" id="1_jyjjr"]
-[ext_resource type="PackedScene" uid="uid://dqn04ibwpepa2" path="res://src/ui/hud/hud.tscn" id="3_jyjjr"]
-[ext_resource type="Shader" uid="uid://bfo1ha4cx12v6" path="res://src/shaders/water_shader.gdshader" id="3_w5caj"]
-[ext_resource type="PackedScene" uid="uid://bmomktx7pakis" path="res://src/ui/pause_menu/pause_menu.tscn" id="4_djufw"]
-[ext_resource type="PackedScene" uid="uid://cs0tfmpy3hgfp" path="res://src/ui/start_menu/start_menu.tscn" id="5_jkpqq"]
+[ext_resource type="Script" uid="uid://ds1xpikx6jwea" path="res://src/game_manager/game_manager.gd" id="1_8fgvu"]
+[ext_resource type="Shader" uid="uid://bfo1ha4cx12v6" path="res://src/shaders/water_shader.gdshader" id="2_ibcf7"]
+[ext_resource type="Script" uid="uid://r3voj3xpa7w7" path="res://src/game_manager/level_viewport.gd" id="2_txcpv"]
+[ext_resource type="PackedScene" uid="uid://dqn04ibwpepa2" path="res://src/ui/hud/hud.tscn" id="3_txcpv"]
+[ext_resource type="PackedScene" uid="uid://bmomktx7pakis" path="res://src/ui/pause_menu/pause_menu.tscn" id="4_hj50m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yotv0"]
-shader = ExtResource("3_w5caj")
+shader = ExtResource("2_ibcf7")
 shader_parameter/frequency = 0.003
 
-[node name="Main" type="Node" unique_id=36978611]
+[node name="GameManager" type="Node" unique_id=36978611]
 process_mode = 3
-script = ExtResource("1_jyjjr")
+script = ExtResource("1_8fgvu")
 metadata/_edit_lock_ = true
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1509348183]
@@ -27,12 +27,13 @@ stretch = true
 stretch_shrink = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewport" type="SubViewport" parent="GameLayer/SubViewportContainer" unique_id=246824215]
+[node name="LevelViewport" type="SubViewport" parent="GameLayer/SubViewportContainer" unique_id=246824215]
 unique_name_in_owner = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 size = Vector2i(320, 180)
 render_target_update_mode = 4
+script = ExtResource("2_txcpv")
 
 [node name="WaterLayer" type="CanvasLayer" parent="." unique_id=1280514124]
 layer = 2
@@ -58,17 +59,11 @@ metadata/_edit_use_anchors_ = true
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=551105237]
 layer = 3
 
-[node name="HUD" parent="HUDLayer" unique_id=680344226 instance=ExtResource("3_jyjjr")]
+[node name="HUD" parent="HUDLayer" unique_id=680344226 instance=ExtResource("3_txcpv")]
 unique_name_in_owner = true
 
 [node name="PauseMenuLayer" type="CanvasLayer" parent="." unique_id=1244969630]
 layer = 4
 
-[node name="PauseMenu" parent="PauseMenuLayer" unique_id=2093979586 instance=ExtResource("4_djufw")]
-unique_name_in_owner = true
-
-[node name="StartMenuLayer" type="CanvasLayer" parent="." unique_id=1972565593]
-layer = 5
-
-[node name="StartMenu" parent="StartMenuLayer" unique_id=1465856661 instance=ExtResource("5_jkpqq")]
+[node name="PauseMenu" parent="PauseMenuLayer" unique_id=2093979586 instance=ExtResource("4_hj50m")]
 unique_name_in_owner = true

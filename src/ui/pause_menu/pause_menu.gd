@@ -7,14 +7,12 @@ var enabled: bool = false
 @onready var continue_button: Button = %ContinueButton as Button
 @onready var restart_button: Button = %RestartButton as Button
 @onready var quit_buttion: Button = %QuitButton as Button
-@onready var fullscreen_label: RichTextLabel = %FullScreenText as RichTextLabel
 
 func _ready() -> void:
 	paused = false
 	
 	if OS.get_name() == "Web":
 		quit_buttion.hide()
-		fullscreen_label.hide()
 		
 		continue_button.focus_neighbor_top = restart_button.get_path()
 		restart_button.focus_neighbor_bottom = continue_button.get_path()
@@ -33,17 +31,13 @@ func set_paused(value: bool) -> void:
 		continue_button.grab_focus()
 
 func can_pause() -> bool:
-	var start_menu: StartMenu = Global.get_start_menu()
-	
-	var started: bool = start_menu.started if start_menu else true
-	
-	return enabled and started
+	return enabled
 
 func _on_continue_button_pressed() -> void:
 	paused = false
 
 func _on_restart_button_pressed() -> void:
-	var player: Player = Global.get_player()
+	var player: Player = Global.Game.get_player()
 	
 	if player:
 		player.kill()

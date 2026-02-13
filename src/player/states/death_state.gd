@@ -8,13 +8,13 @@ func _state_machine_ready() -> void:
 	fade = 0.0
 
 func _enter(_previous_state: State) -> void:
-	Global.apply_camera_shake(player.death_camera_shake_strength, player.death_camera_shake_fade)
-	var pause_menu: PauseMenu = Global.get_pause_menu()
+	Global.Camera.apply_shake(player.death_camera_shake_strength, player.death_camera_shake_fade)
+	var pause_menu: PauseMenu = Global.UI.get_pause_menu()
 	
 	if pause_menu:
 		pause_menu.enabled = false
 	
-	var hud: HUD = Global.get_hud()
+	var hud: HUD = Global.UI.get_hud()
 	
 	if hud:
 		hud.oxygen_reduce_timer.stop()
@@ -25,7 +25,7 @@ func _enter(_previous_state: State) -> void:
 	await tween.finished
 	await get_tree().create_timer(player.after_fade_time, false).timeout
 	
-	Global.reload_current_level()
+	Global.Levels.reload_current()
 
 func set_fade(value: float) -> void:
 	fade = value

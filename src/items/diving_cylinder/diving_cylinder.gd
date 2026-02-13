@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		var hud: HUD = Global.get_hud()
+		var hud: HUD = Global.UI.get_hud()
 		
 		if not hud:
 			return

@@ -34,7 +34,7 @@ static func from_scene(pos: Vector2, direction: Vector2) -> void:
 	instance.global_position = pos
 	instance.emission_direction = direction
 	
-	Global.get_main().current_level.add_child(instance)
+	Global.Levels.get_current().add_child(instance)
 
 static func get_particles_amount(accesor: Node) -> int:
 	return accesor.get_tree().get_nodes_in_group(GROUP_NAME).size()

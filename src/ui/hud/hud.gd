@@ -16,6 +16,7 @@ func _ready() -> void:
 func reset() -> void:
 	oxygen_bar.value = oxygen_bar.max_value
 	oxygen = oxygen_bar.max_value
+	oxygen_reduce_timer.stop()
 
 func set_oxygen(value: float) -> void:
 	oxygen = clampf(value, 0, oxygen_bar.max_value)

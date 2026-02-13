@@ -5,16 +5,9 @@ signal end_transition_finished
 
 @export var after_end_transition_time: float
 
-var MainScene: PackedScene = preload("res://src/main/main.tscn")
+var GameManagerScene: PackedScene = preload("res://src/game_manager/game_manager.tscn")
 
 @onready var transition_animation_player: AnimationPlayer = %TransitionAnimationPlayer as AnimationPlayer
-
-func setup_main(default_level_path: String) -> void:
-	get_tree().change_scene_to_packed.call_deferred(MainScene)
-	
-	await get_tree().scene_changed
-	
-	switch_level_to_file(default_level_path)
 
 func play_start_transition() -> void:
 	transition_animation_player.play("start_transition")
@@ -30,99 +23,112 @@ func play_end_transition() -> void:
 func is_playing_transition() -> bool:
 	return transition_animation_player.is_playing()
 
-func get_main() -> Main:
-	var main: Main = get_tree().current_scene as Main
+class Game:
+	static func get_manager() -> GameManager:
+		var game_manager: GameManager = Global.get_tree().current_scene as GameManager
+		
+		return game_manager
 	
-	return main
+	static func get_or_add_manager() -> GameManager:
+		var game_manager: GameManager = Global.get_tree().current_scene as GameManager
+		
+		if not game_manager:
+			Global.get_tree().change_scene_to_packed.call_deferred(Global.GameManagerScene)
+			
+			await Global.get_tree().scene_changed
+			game_manager = Global.get_tree().current_scene as GameManager
+		
+		return game_manager
+	
+	static func get_player() -> Player:
+		var player: Player = Global.get_tree().get_first_node_in_group("player") as Player
+		
+		return player
+	
+class Camera:
+	static func get_camera() -> PlayerCamera:
+		var camera: PlayerCamera = Global.get_tree().get_first_node_in_group("player_camera") as PlayerCamera
+		
+		return camera
+	
+	static func apply_shake(strength: float, fade: float) -> void:
+		var camera: PlayerCamera = get_camera()
+		
+		if camera:
+			camera.apply_shake(strength, fade)
+	
+	static func apply_zoom(value: Vector2, fade: float) -> void:
+		var camera: PlayerCamera = get_camera()
+		
+		if camera:
+			camera.apply_zoom(value, fade)
 
-func get_hud() -> HUD:
-	var hud: HUD = get_tree().get_first_node_in_group("hud") as HUD
+class UI:
+	static func get_pause_menu() -> PauseMenu:
+		var pause_menu: PauseMenu = Global.get_tree().get_first_node_in_group("pause_menu") as PauseMenu
+		
+		return pause_menu
 	
-	return hud
+	static func enable_pause_menu() -> void:
+		var pause_menu: PauseMenu = get_pause_menu()
+		
+		if pause_menu:
+			pause_menu.enabled = true
+	
+	static func get_hud() -> HUD:
+		var hud: HUD = Global.get_tree().get_first_node_in_group("hud") as HUD
+		
+		return hud
 
-func get_player() -> Player:
-	var player: Player = get_tree().get_first_node_in_group("player") as Player
+class Levels:
+	static func switch_to_packed(level_scene: PackedScene, play_transitions: bool = true) -> void:
+		var game_manager: GameManager = await Global.Game.get_or_add_manager()
+		
+		if game_manager:
+			game_manager.switch_level_to_packed(level_scene, play_transitions)
 	
-	return player
+	static func switch_to_file(level_path: String, play_transitions: bool = true) -> void:
+		var game_manager: GameManager = await Global.Game.get_or_add_manager()
+		
+		if game_manager:
+			game_manager.switch_level_to_file(level_path, play_transitions)
+	
+	static func reload_current() -> void:
+		var game_manager: GameManager = Global.Game.get_manager()
+		
+		if game_manager:
+			game_manager.reload_current_level()
+	
+	static func get_current() -> Node:
+		var game_manager: GameManager = Global.Game.get_manager()
+		
+		if game_manager:
+			return game_manager.current_level
+		
+		return null
 
-func get_pause_menu() -> PauseMenu:
-	var pause_menu: PauseMenu = get_tree().get_first_node_in_group("pause_menu") as PauseMenu
+class Scenes:
+	static func switch_to_node(node: Node, play_transitions: bool = true) -> void:
+		_handle_scene_switch(Global.get_tree().change_scene_to_node, play_transitions, node)
 	
-	return pause_menu
-
-func get_player_camera() -> PlayerCamera:
-	var camera: PlayerCamera = get_tree().get_first_node_in_group("player_camera") as PlayerCamera
+	static func switch_to_packed(scene: PackedScene, play_transitions: bool = true) -> void:
+		_handle_scene_switch(Global.get_tree().change_scene_to_packed, play_transitions, scene)
 	
-	return camera
-
-func apply_camera_shake(strength: float, fade: float) -> void:
-	var camera: PlayerCamera = get_player_camera()
+	static func switch_to_file(path: PackedScene, play_transitions: bool = true) -> void:
+		_handle_scene_switch(Global.get_tree().change_scene_to_file, play_transitions, path)
 	
-	if camera:
-		camera.apply_shake(strength, fade)
-
-func apply_zoom(value: Vector2, fade: float) -> void:
-	var camera: PlayerCamera = get_player_camera()
-	
-	if camera:
-		camera.apply_zoom(value, fade)
-
-func enable_pause_menu() -> void:
-	var pause_menu: PauseMenu = get_pause_menu()
-	
-	if pause_menu:
-		pause_menu.enabled = true
-
-func start_oxygen_timer(on_oxygen_finished: Callable) -> void:
-	var hud: HUD = get_hud()
-	
-	if hud:
-		hud.oxygen_reduce_timer.start()
-		hud.oxygen_finished.connect(on_oxygen_finished)
-
-func get_start_menu() -> StartMenu:
-	var start_menu: StartMenu = get_tree().get_first_node_in_group("start_menu") as StartMenu
-	
-	return start_menu
-
-func switch_level_to_packed(level: PackedScene, play_end_anim: bool = false, enable_start_menu: bool = true) -> void:
-	var main: Main = get_main()
-	
-	if main:
-		main.switch_level_to_packed(level, play_end_anim, enable_start_menu)
-
-func switch_level_to_file(level_path: String, play_end_anim: bool = false, enable_start_menu: bool = true) -> void:
-	var main: Main = get_main()
-	
-	if main:
-		main.switch_level_to_file(level_path, play_end_anim, enable_start_menu)
-
-func switch_scene_to_packed(scene: PackedScene, play_end_anim: bool = true, play_start_anim: bool = true) -> void:
-	if play_end_anim:
-		play_end_transition()
-		await end_transition_finished
-	
-	get_tree().paused = true
-	
-	get_tree().change_scene_to_packed(scene)
-	await get_tree().scene_changed
-	
-	if play_start_anim:
-		play_start_transition()
-		await start_transition_finished
-	
-	get_tree().paused = false
-
-func get_current_level() -> Node:
-	var main: Main = get_main()
-	
-	if main:
-		return main.current_level
-	
-	return null
-
-func reload_current_level(play_end_anim: bool = true, enable_start_menu: bool = false) -> void:
-	var main: Main = get_main()
-	
-	if main:
-		main.reload_current_level(play_end_anim, enable_start_menu)
+	static func _handle_scene_switch(callable: Callable, play_transitions: bool, scene: Variant) -> void:
+		Global.get_tree().paused = true
+		
+		if play_transitions:
+			Global.play_end_transition()
+			await Global.end_transition_finished
+		
+		callable.call(scene)
+		await Global.get_tree().scene_changed
+		
+		if play_transitions:
+			Global.play_start_transition()
+			await Global.start_transition_finished
+		
+		Global.get_tree().paused = false
