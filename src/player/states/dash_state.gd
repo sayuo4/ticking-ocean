@@ -5,6 +5,7 @@ var start_point: Vector2 = Vector2.ZERO
 
 func _enter(_previous_state: State) -> void:
 	Global.apply_camera_shake(player.dash_camera_shake_strength, player.dash_camera_shake_fade)
+	Global.apply_zoom(player.dash_camera_zoom_value, player.dash_camera_zoom_fade)
 	start_point = player.global_position
 	
 	var hud: HUD = Global.get_hud()

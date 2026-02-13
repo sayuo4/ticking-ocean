@@ -61,6 +61,12 @@ func apply_camera_shake(strength: float, fade: float) -> void:
 	if camera:
 		camera.apply_shake(strength, fade)
 
+func apply_zoom(value: Vector2, fade: float) -> void:
+	var camera: PlayerCamera = get_player_camera()
+	
+	if camera:
+		camera.apply_zoom(value, fade)
+
 func enable_pause_menu() -> void:
 	var pause_menu: PauseMenu = get_pause_menu()
 	

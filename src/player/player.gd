@@ -45,6 +45,9 @@ const IDLE_ANIM: StringName = &"idle"
 @export var dash_camera_shake_strength: float
 @export var dash_camera_shake_fade: float
 
+@export var dash_camera_zoom_value: Vector2 = Vector2.ONE
+@export var dash_camera_zoom_fade: float
+
 @onready var shape: Node2D = $Shape as Node2D
 @onready var state_machine: StateMachine = $StateMachine as StateMachine
 @onready var sprite: Sprite2D = %Sprite2D as Sprite2D
