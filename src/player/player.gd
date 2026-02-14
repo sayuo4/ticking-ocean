@@ -51,6 +51,8 @@ const IDLE_ANIM: StringName = &"idle"
 @onready var shape: Node2D = $Shape as Node2D
 @onready var state_machine: StateMachine = $StateMachine as StateMachine
 @onready var sprite: Sprite2D = %Sprite2D as Sprite2D
+@onready var dash_particles: GPUParticles2D = %DashParticles as GPUParticles2D
+@onready var swim_particles: GPUParticles2D = %SwimParticles as GPUParticles2D
 
 @onready var boost_timer: Timer = %BoostTimer as Timer
 @onready var dash_timer: Timer = %DashTimer as Timer
@@ -93,12 +95,15 @@ func apply_boost() -> void:
 
 func apply_animations() -> void:
 	if velocity.length() < swimming_speed_threshhold:
+		swim_particles.emitting = false
+		
 		if %Anim.current_animation == SWIM_ANIM: # wait the swim anim to finish
 			wait_for_swim_anim()
 			return
 		
 		%Anim.play(IDLE_ANIM)
 	else:
+		swim_particles.emitting = true
 		%Anim.play(SWIM_ANIM, 0.1)
 
 func wait_for_swim_anim() -> void:

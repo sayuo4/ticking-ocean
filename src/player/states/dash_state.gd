@@ -4,6 +4,7 @@ extends PlayerState
 var start_point: Vector2 = Vector2.ZERO
 
 func _enter(_previous_state: State) -> void:
+	player.dash_particles.emitting = true
 	Global.Camera.apply_shake(player.dash_camera_shake_strength, player.dash_camera_shake_fade)
 	Global.Camera.apply_zoom(player.dash_camera_zoom_value, player.dash_camera_zoom_fade)
 	start_point = player.global_position
@@ -14,6 +15,7 @@ func _enter(_previous_state: State) -> void:
 		hud.oxygen -= player.dash_oxygen_reduce_amount
 
 func _exit(_current_state: State) -> void:
+	player.dash_particles.emitting = false
 	player.dash_timer.start()
 	player.velocity *= player.after_dash_velocity_ratio
 
