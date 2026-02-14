@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b0kebrutcrd3b"]
 
 [ext_resource type="Script" uid="uid://dxcfeyhmrpdc1" path="res://src/levels/game_level.gd" id="1_nm6nc"]
+[ext_resource type="PackedScene" uid="uid://c5uv7wqypqa2y" path="res://src/props/props_tile_map.tscn" id="2_t1prb"]
 [ext_resource type="PackedScene" uid="uid://dkgdmncksd8lq" path="res://src/map/sand_tilemap/sand_tilemap.tscn" id="2_tphog"]
 [ext_resource type="PackedScene" uid="uid://drihxlqlbhohq" path="res://src/player/player.tscn" id="4_51tk5"]
 [ext_resource type="PackedScene" uid="uid://btcwfmryqcrp0" path="res://src/map/win_cylinder/win_cylinder.tscn" id="4_88vja"]
@@ -17,22 +18,32 @@ z_index = -2
 modulate = Color(0.15686275, 0.15686275, 0.23529412, 1)
 scroll_scale = Vector2(0.1, 0)
 
+[node name="PropsTileMap" parent="Background/Layer1" unique_id=1267827720 instance=ExtResource("2_t1prb")]
+
 [node name="Layer2" type="Parallax2D" parent="Background" unique_id=181032568]
 modulate = Color(0.39215687, 0.39215687, 0.39215687, 1)
 scroll_scale = Vector2(0.3, 0)
+
+[node name="PropsTileMap" parent="Background/Layer2" unique_id=1798934774 instance=ExtResource("2_t1prb")]
 
 [node name="Layer3" type="Parallax2D" parent="Background" unique_id=2028132504]
 modulate = Color(0.54901963, 0.54901963, 0.54901963, 1)
 scroll_scale = Vector2(0.5, 0)
 
+[node name="PropsTileMap" parent="Background/Layer3" unique_id=45648381 instance=ExtResource("2_t1prb")]
+
 [node name="Layer4" type="Parallax2D" parent="Background" unique_id=797417467]
 modulate = Color(0.7058824, 0.7058824, 0.7058824, 1)
 scroll_scale = Vector2(0.8, 0)
+
+[node name="PropsTileMap" parent="Background/Layer4" unique_id=1775425034 instance=ExtResource("2_t1prb")]
 
 [node name="BackTiles" parent="." unique_id=1355478542 instance=ExtResource("2_tphog")]
 modulate = Color(0.27022192, 0.27022192, 0.2702219, 1)
 z_index = -1
 collision_enabled = false
+
+[node name="PropsTileMap" parent="." unique_id=1494629255 instance=ExtResource("2_t1prb")]
 
 [node name="FrontTiles" parent="." unique_id=481530268 instance=ExtResource("2_tphog")]
 

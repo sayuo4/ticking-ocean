@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c434xson31wfo"]
+
+[ext_resource type="Script" uid="uid://dyte054hjvse" path="res://src/props/coral/coral.gd" id="1_4gsng"]
+[ext_resource type="Texture2D" uid="uid://dq2qccyxppnm1" path="res://assets/props/coral/red_coral.png" id="2_g8d00"]
+
+[node name="RedCoral" type="Node2D" unique_id=1758206673 node_paths=PackedStringArray("shape_node")]
+script = ExtResource("1_4gsng")
+shape_node = NodePath("Shape")
+skew_range = 7.0
+skew_time = 3.0
+metadata/_edit_group_ = true
+
+[node name="Shape" type="Node2D" parent="." unique_id=1095306680]
+position = Vector2(0, 8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shape" unique_id=1956355474]
+position = Vector2(0, -16)
+texture = ExtResource("2_g8d00")

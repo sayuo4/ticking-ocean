@@ -28,16 +28,18 @@ root_texture = SubResource("AtlasTexture_pmxda")
 stem_texture = SubResource("AtlasTexture_vxxuk")
 top_texture = SubResource("AtlasTexture_m1g5t")
 
-[node name="TopSprite" type="Sprite2D" parent="." unique_id=212589878]
+[node name="Sprites" type="Node2D" parent="." unique_id=771382618]
+position = Vector2(0, -2)
+
+[node name="TopSprite" type="Sprite2D" parent="Sprites" unique_id=212589878]
 unique_name_in_owner = true
 
-[node name="StemSprite" type="Sprite2D" parent="." unique_id=396316961]
+[node name="StemSprite" type="Sprite2D" parent="Sprites" unique_id=396316961]
 unique_name_in_owner = true
-visible = false
 texture_repeat = 2
 texture = SubResource("AtlasTexture_wvqwg")
 region_enabled = true
 region_rect = Rect2(-10, -16, 40, 39)
 
-[node name="RootSprite" type="Sprite2D" parent="." unique_id=1613290041]
+[node name="RootSprite" type="Sprite2D" parent="Sprites" unique_id=1613290041]
 unique_name_in_owner = true

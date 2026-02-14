@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c5uv7wqypqa2y"]
+
+[ext_resource type="PackedScene" uid="uid://dgt1n3wm7c3qs" path="res://src/props/kelp/kelp.tscn" id="1_5qkp1"]
+[ext_resource type="PackedScene" uid="uid://c434xson31wfo" path="res://src/props/coral/red_coral.tscn" id="2_dikiq"]
+[ext_resource type="PackedScene" uid="uid://boadacu323hwo" path="res://src/props/coral/green_coral.tscn" id="3_8r3ch"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_dikiq"]
+scenes/1/scene = ExtResource("1_5qkp1")
+scenes/2/scene = ExtResource("2_dikiq")
+scenes/3/scene = ExtResource("3_8r3ch")
+
+[sub_resource type="TileSet" id="TileSet_8r3ch"]
+sources/0 = SubResource("TileSetScenesCollectionSource_dikiq")
+
+[node name="PropsTileMap" type="TileMapLayer" unique_id=1267827720]
+tile_set = SubResource("TileSet_8r3ch")
+rendering_quadrant_size = 8

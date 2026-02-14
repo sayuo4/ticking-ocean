@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq2qccyxppnm1"
-path="res://.godot/imported/puruple_coral.png-97a13ec6105f0b184add5060a4bff141.ctex"
+uid="uid://boljd8sdrfvfb"
+path="res://.godot/imported/green_coral.png-852c7697a57ae7b7e88fe66d93907410.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/props/coral/puruple_coral.png"
-dest_files=["res://.godot/imported/puruple_coral.png-97a13ec6105f0b184add5060a4bff141.ctex"]
+source_file="res://assets/props/coral/green_coral.png"
+dest_files=["res://.godot/imported/green_coral.png-852c7697a57ae7b7e88fe66d93907410.ctex"]
 
 [params]
 
