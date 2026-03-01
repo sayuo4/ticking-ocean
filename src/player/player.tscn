@@ -15,14 +15,13 @@ shader_parameter/fade = 0.0
 shader_parameter/tiling = 10.0
 
 [sub_resource type="Gradient" id="Gradient_x42xx"]
-colors = PackedColorArray(1, 1, 1, 0.49803922, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 0.24705882, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_l271a"]
 gradient = SubResource("Gradient_x42xx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o822w"]
 gravity = Vector3(0, 0, 0)
-color = Color(0.61121064, 0.6819312, 1, 1)
 color_ramp = SubResource("GradientTexture1D_l271a")
 
 [sub_resource type="Animation" id="Animation_x42xx"]
