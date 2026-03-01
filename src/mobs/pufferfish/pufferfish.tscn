@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://dnxdh56bgwhuu"]
+
+[ext_resource type="Script" uid="uid://dppp1x3jiskb8" path="res://src/mobs/pufferfish/pufferfish.gd" id="1_0i8n3"]
+[ext_resource type="Script" uid="uid://b38sn5c4l06dy" path="res://src/state_machine/state_machine.gd" id="2_evlhp"]
+[ext_resource type="Texture2D" uid="uid://digbplgmvsa88" path="res://assets/mobs/pufferfish.png" id="2_ymxcr"]
+[ext_resource type="Script" uid="uid://ciptgnyrrh5bv" path="res://src/mobs/pufferfish/states/deflated_state.gd" id="4_hsydh"]
+[ext_resource type="Script" uid="uid://j3k560ewai3w" path="res://src/mobs/pufferfish/states/inflated_state.gd" id="5_dd7nw"]
+[ext_resource type="Script" uid="uid://ca5ergtg7fcf5" path="res://src/pingpong_component/pingpong_component.gd" id="6_dd7nw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsydh"]
+size = Vector2(11, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dd7nw"]
+size = Vector2(6, 5)
+
+[sub_resource type="Animation" id="Animation_hsydh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InflatedCollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeflatedCollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2wbn1"]
+resource_name = "deflate"
+length = 1.0000167
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4901161e-08, 0.1667, 0.33330002, 0.5, 0.6667, 0.8334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 14, 13, 12, 11, 10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InflatedCollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeflatedCollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dd7nw"]
+resource_name = "deflated_idle"
+length = 1.00001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InflatedCollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeflatedCollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dt2e0"]
+resource_name = "inflate"
+length = 0.83335
+step = 0.16666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.4901161e-08, 0.16666669, 0.33333334, 0.5, 0.66666675),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [11, 12, 13, 14, 15]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InflatedCollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeflatedCollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p4d0h"]
+resource_name = "inflated_idle"
+loop_mode = 1
+step = 0.11111111
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shape/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11111111, 0.22222222, 0.33333334, 0.44444445, 0.5555556, 0.6666667, 0.7777778, 0.8888889),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [16, 17, 18, 19, 20, 21, 22, 23, 24]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InflatedCollisionShape:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DeflatedCollisionShape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wbn1"]
+_data = {
+&"RESET": SubResource("Animation_hsydh"),
+&"deflate": SubResource("Animation_2wbn1"),
+&"deflated_idle": SubResource("Animation_dd7nw"),
+&"inflate": SubResource("Animation_dt2e0"),
+&"inflated_idle": SubResource("Animation_p4d0h")
+}
+
+[node name="Pufferfish" type="Area2D" unique_id=412398646]
+script = ExtResource("1_0i8n3")
+deflated_throw_force = 150.0
+inflate_pause_player_time = 0.1
+
+[node name="Shape" type="Node2D" parent="." unique_id=968789832]
+position = Vector2(-2, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shape" unique_id=1148696573]
+position = Vector2(2, 0)
+texture = ExtResource("2_ymxcr")
+flip_h = true
+hframes = 13
+vframes = 2
+region_rect = Rect2(75, 13, 11, 7)
+
+[node name="InflatedCollisionShape" type="CollisionShape2D" parent="." unique_id=1028498041]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_hsydh")
+disabled = true
+
+[node name="DeflatedCollisionShape" type="CollisionShape2D" parent="." unique_id=1824105911]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_dd7nw")
+
+[node name="StateMachine" type="Node" parent="." unique_id=514680166 node_paths=PackedStringArray("target_node", "default_state")]
+script = ExtResource("2_evlhp")
+target_node = NodePath("..")
+default_state = NodePath("DeflatedState")
+metadata/_custom_type_script = "uid://b38sn5c4l06dy"
+
+[node name="DeflatedState" type="Node" parent="StateMachine" unique_id=1323513747]
+script = ExtResource("4_hsydh")
+metadata/_custom_type_script = "uid://ciptgnyrrh5bv"
+
+[node name="InflatedState" type="Node" parent="StateMachine" unique_id=911839387]
+script = ExtResource("5_dd7nw")
+metadata/_custom_type_script = "uid://j3k560ewai3w"
+
+[node name="InflatedTimer" type="Timer" parent="." unique_id=1175126662]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1907647022]
+libraries/ = SubResource("AnimationLibrary_2wbn1")
+
+[node name="PingPongComponent" type="Node" parent="." unique_id=723317924 node_paths=PackedStringArray("target_node")]
+script = ExtResource("6_dd7nw")
+target_node = NodePath("../Shape")
+duration = 0.6
+metadata/_custom_type_script = "uid://ca5ergtg7fcf5"

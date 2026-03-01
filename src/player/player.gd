@@ -158,5 +158,14 @@ func update_flip_h() -> void:
 func kill() -> void:
 	state_machine.activate_state_by_name.call_deferred("DeathState")
 
+func disable_for(time: float) -> void:
+	var prev_process_mode: ProcessMode = process_mode
+	
+	process_mode = Node.PROCESS_MODE_DISABLED
+	
+	await get_tree().create_timer(time, false).timeout
+	
+	process_mode = prev_process_mode
+
 func _on_oxygen_finished() -> void:
 	kill()

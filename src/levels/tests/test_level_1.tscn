@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkgdmncksd8lq" path="res://src/map/sand_tilemap/sand_tilemap.tscn" id="3_bvmjd"]
 [ext_resource type="PackedScene" uid="uid://bxrnqpbi7yote" path="res://src/items/diving_cylinder/diving_cylinder.tscn" id="4_m0e13"]
 [ext_resource type="PackedScene" uid="uid://btcwfmryqcrp0" path="res://src/map/win_cylinder/win_cylinder.tscn" id="5_ya63w"]
-[ext_resource type="PackedScene" uid="uid://dnjywo7jdr5p2" path="res://src/levels/tests/test_level_2.tscn" id="6_f3xv5"]
+[ext_resource type="PackedScene" uid="uid://dnxdh56bgwhuu" path="res://src/mobs/pufferfish/pufferfish.tscn" id="6_f3xv5"]
 
 [node name="TestLevel1" type="Node2D" unique_id=837896800]
 process_mode = 1
@@ -30,4 +30,6 @@ position = Vector2(89, 20)
 [node name="WinCylinder" parent="." unique_id=2074845977 instance=ExtResource("5_ya63w")]
 position = Vector2(64, 112)
 rotation = 1.5707964
-next_level = ExtResource("6_f3xv5")
+
+[node name="Pufferfish" parent="." unique_id=412398646 instance=ExtResource("6_f3xv5")]
+position = Vector2(32, 43)
