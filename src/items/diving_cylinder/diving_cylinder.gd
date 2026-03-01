@@ -9,12 +9,10 @@ var fade: float: set = set_fade
 
 @onready var sprite: Sprite2D = $Sprite2D as Sprite2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D as CollisionShape2D
-@onready var animation_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
 @onready var point_light: PointLight2D = $PointLight2D as PointLight2D
 
 func _ready() -> void:
-	$Sprite2D.material = $Sprite2D.material.duplicate()
-	animation_player.play("pingpong")
+	sprite.material = sprite.material.duplicate() # Ensure a separate material for each cylinder in the scene
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
