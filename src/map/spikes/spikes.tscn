@@ -6,6 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hxod"]
 size = Vector2(14, 3)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_im0m8"]
+size = Vector2(14, 2)
+
 [node name="Spikes" type="Area2D" unique_id=1702733757]
 script = ExtResource("1_im0m8")
 
@@ -15,5 +18,12 @@ texture = ExtResource("1_0hxod")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2007430715]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_0hxod")
+
+[node name="SafeArea" type="Area2D" parent="." unique_id=1419181043]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeArea" unique_id=1155879628]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_im0m8")
+debug_color = Color(1, 1, 1, 0.41960785)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

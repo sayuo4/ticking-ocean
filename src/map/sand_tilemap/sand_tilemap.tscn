@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://dymrivvs76t7o" path="res://assets/map/tileset/sand_tileset.png" id="1_1h5kr"]
 [ext_resource type="PackedScene" uid="uid://broyesug3yb1x" path="res://src/map/spikes/spikes.tscn" id="2_qrjkn"]
-[ext_resource type="PackedScene" uid="uid://cw4ogs4t3qel4" path="res://src/map/spikes/corner_spikes.tscn" id="4_wugqd"]
 [ext_resource type="Script" uid="uid://bos7w1nms8xw4" path="res://src/map/sand_tilemap/sand_tilemap.gd" id="5_qrjkn"]
 [ext_resource type="Texture2D" uid="uid://booobyewy6m0w" path="res://assets/map/tileset/filled_corner_sand_tileset.png" id="5_vbfqf"]
 [ext_resource type="Texture2D" uid="uid://db272l8lylaul" path="res://assets/map/tileset/wooden_tiles.png" id="5_wugqd"]
@@ -286,7 +285,6 @@ texture = ExtResource("1_1h5kr")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_obj8n"]
 resource_name = "Spikes"
 scenes/1/scene = ExtResource("2_qrjkn")
-scenes/2/scene = ExtResource("4_wugqd")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wugqd"]
 texture = ExtResource("5_vbfqf")
@@ -382,13 +380,10 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Main"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_p8l76")
+sources/10 = SubResource("TileSetAtlasSource_wugqd")
+sources/2 = SubResource("TileSetAtlasSource_18rvf")
 sources/1 = SubResource("TileSetScenesCollectionSource_obj8n")
-sources/2 = SubResource("TileSetAtlasSource_wugqd")
-sources/3 = SubResource("TileSetAtlasSource_18rvf")
 
 [node name="SandTilemap" type="TileMapLayer" unique_id=1355478542]
-tile_map_data = PackedByteArray(0, 0, 20, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 20, 0, 3, 0, 3, 0, 1, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_obj8n")
 script = ExtResource("5_qrjkn")
-
-[connection signal="body_entered" from="Spikes" to="Spikes" method="_on_body_entered"]

@@ -3,7 +3,7 @@ extends TileMapLayer
 
 const SAND_TILESET_SOURCE_ID: int = 0
 const SPIKES_SOURCE_ID: int = 1
-const FILLED_CORNER_SAND_TILESET_SOURCE_ID: int = 2
+const FILLED_CORNER_SAND_TILESET_SOURCE_ID: int = 10
 
 func _ready() -> void:
 	replace_cells()
