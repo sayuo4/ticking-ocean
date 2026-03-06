@@ -144,7 +144,7 @@ func spawn_sand_particles(collision: KinematicCollision2D, dir: Vector2) -> void
 	if SandBounceParticles.get_particles_amount(self) >= max_sand_particles_amount:
 		return
 	
-	var tilemap: SandTileMap = collision.get_collider()
+	var tilemap: SandTileMap = collision.get_collider() as SandTileMap
 	
 	if not tilemap:
 		return
